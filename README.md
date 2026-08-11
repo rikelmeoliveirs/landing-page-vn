@@ -1,6 +1,6 @@
 # Barbearia do Vini — Site
 
-Landing page da Barbearia do Vini (Serra Center, Serra/ES). Site estático, sem build,
+Landing page da Barbearia do Vini (Serra Sede, Serra/ES). Site estático, sem build,
 sem dependências — abre direto no navegador ou em qualquer host de arquivos estáticos.
 
 ## Estrutura
