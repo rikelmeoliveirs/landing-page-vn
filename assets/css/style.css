@@ -82,11 +82,12 @@ header.nav{
   white-space:nowrap;
 }
 .monogram{
-  width:34px;height:34px;border:1px solid var(--steel-2);
-  display:flex;align-items:center;justify-content:center;
-  font-family:Georgia,serif;font-size:0.95rem;color:var(--steel-1);
-  background:linear-gradient(145deg,#2a2c30,#0c0d0f);
-  flex:none;
+  width:34px;height:34px;flex:none;
+  border:1px solid var(--line-strong);
+  background-image:url("../img/logo-dark.png");
+  background-repeat:no-repeat;
+  background-size:79.8px auto;
+  background-position:-22.8px -15.3px;
 }
 nav.links{
   display:flex;gap:28px;font-size:0.82rem;letter-spacing:0.06em;
@@ -351,9 +352,12 @@ section{padding:88px 0;}
 }
 .vclub-seal{
   width:110px;height:110px;flex:none;
-  object-fit:cover;
   border-radius:50%;
   border:1px solid var(--line-strong);
+  background-image:url("../img/vclub-badge.jpg");
+  background-repeat:no-repeat;
+  background-size:184px auto;
+  background-position:-31.8px -52.5px;
 }
 .vclub-grid{
   display:grid;
