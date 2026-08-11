@@ -14,6 +14,10 @@
   <meta property="og:description" content="Faço site profissional pra barbearias, com agendamento pelo WhatsApp e endereço próprio na internet. Veja pacotes, valores e um exemplo real no ar.">
   <meta name="twitter:card" content="summary">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --ink:#0b0c0e;
@@ -28,6 +32,8 @@
       --case-ember:#c8793a;
       --line: rgba(236,238,240,0.12);
       --line-strong: rgba(236,238,240,0.22);
+      --font-display:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --font-body:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
 
     *{box-sizing:border-box;}
@@ -36,13 +42,14 @@
       margin:0;
       background:var(--ink);
       color:var(--steel-1);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      font-family:var(--font-body);
       -webkit-font-smoothing:antialiased;
       overflow-x:hidden;
     }
     img{max-width:100%;display:block;}
     h1,h2,h3{
-      font-family:Georgia,"Times New Roman",Times,serif;
+      font-family:var(--font-display);
+      font-weight:600;
       text-wrap:balance;
       margin:0;
       letter-spacing:0.01em;
@@ -95,7 +102,7 @@
       background:linear-gradient(145deg,#2a2c30,#0c0d0f);
       border:1px solid var(--steel-2);
       display:flex;align-items:center;justify-content:center;
-      font-family:Georgia,serif;color:var(--steel-1);font-size:0.95rem;
+      font-family:var(--font-display);color:var(--steel-1);font-size:0.95rem;
     }
     .hero-foot b{color:var(--steel-1);display:block;font-size:0.9rem;}
 
@@ -133,7 +140,7 @@
       color:var(--case-ember);font-weight:700;
     }
     .mock-hero h3{
-      font-family:Georgia,serif;text-transform:uppercase;
+      font-family:var(--font-display);text-transform:uppercase;
       font-size:clamp(1.5rem,4vw,2.1rem);line-height:1;
       color:var(--steel-1);margin-top:10px;max-width:12ch;
     }
@@ -146,7 +153,7 @@
       padding-top:18px;border-top:1px solid var(--line);
     }
     .mock-stats div b{
-      display:block;font-family:Georgia,serif;color:var(--steel-1);font-size:1rem;
+      display:block;font-family:var(--font-display);color:var(--steel-1);font-size:1rem;
     }
     .mock-stats div span{font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--steel-3);}
     .proof-link{
@@ -184,7 +191,7 @@
     }
     .pkg-card h3{font-size:1.15rem;color:var(--steel-1);}
     .pkg-price{display:flex;align-items:baseline;gap:6px;}
-    .pkg-price b{font-family:Georgia,serif;font-size:1.9rem;color:var(--brass-light);font-variant-numeric:tabular-nums;}
+    .pkg-price b{font-family:var(--font-display);font-size:1.9rem;color:var(--brass-light);font-variant-numeric:tabular-nums;}
     .pkg-list{list-style:none;margin:0;padding:0;display:grid;gap:9px;flex:1;}
     .pkg-list li{display:flex;gap:9px;font-size:0.88rem;color:var(--steel-2);line-height:1.5;}
     .pkg-list li::before{content:"✓";color:var(--brass);font-weight:700;flex:none;}
@@ -196,7 +203,7 @@
     }
     .addon b{color:var(--steel-1);display:block;font-size:0.95rem;}
     .addon span{color:var(--steel-3);font-size:0.84rem;}
-    .addon .amt{font-family:Georgia,serif;color:var(--brass-light);font-size:1.1rem;white-space:nowrap;}
+    .addon .amt{font-family:var(--font-display);color:var(--brass-light);font-size:1.1rem;white-space:nowrap;}
 
     /* ---------- PROCESSO ---------- */
     .steps{display:grid;gap:0;margin-top:36px;border-top:1px solid var(--line-strong);}
@@ -205,7 +212,7 @@
       padding:22px 0;border-bottom:1px solid var(--line);
     }
     .step .n{
-      font-family:Georgia,serif;font-size:1.6rem;color:var(--brass);
+      font-family:var(--font-display);font-size:1.6rem;color:var(--brass);
       font-variant-numeric:tabular-nums;line-height:1;
     }
     .step b{display:block;color:var(--steel-1);font-size:1rem;margin-bottom:4px;}
