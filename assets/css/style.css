@@ -9,7 +9,7 @@
   --ink-3:#1f2124;
   --steel-1:#eceef0;
   --steel-2:#aeb2b9;
-  --steel-3:#6b6f76;
+  --steel-3:#8b8f96; /* >=4.5:1 sobre --ink e --ink-2 (WCAG AA) */
   --ember:#c8793a;
   --ember-deep:#8f5424;
   --ember-light:#e3a26b;
@@ -80,6 +80,7 @@ header.nav{
   gap:12px;
   white-space:nowrap;
   text-decoration:none;
+  min-width:0; /* deixa o nome truncar em vez de empurrar o resto do topo pra fora */
 }
 .brand-logo-wrap{
   position:relative;
@@ -99,6 +100,8 @@ header.nav{
   font-size:0.95rem;
   text-transform:uppercase;
   color:var(--steel-1);
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 .brand-logo-wrap::after{
   content:"";
@@ -168,11 +171,103 @@ nav.links a:hover{color:var(--ember-light);}
 }
 .btn-ghost:hover{border-color:var(--ember-light);color:var(--ember-light);transform:translateY(-2px);}
 
-@media(min-width:720px){
+/* Botão hambúrguer — só aparece quando os links do topo somem */
+.nav-toggle{
+  display:none;
+  position:relative;
+  width:42px;height:38px;
+  flex:none;
+  padding:0;
+  background:var(--ink-2);
+  border:1px solid var(--line-strong);
+  cursor:pointer;
+  transition:border-color .2s ease, background .2s ease;
+}
+.nav-toggle:hover{border-color:var(--ember-light);}
+.nav-toggle span{
+  position:absolute;
+  left:50%;top:50%;
+  width:19px;height:1.5px;
+  margin-left:-9.5px;margin-top:-0.75px;
+  background:var(--steel-1);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1), opacity .2s ease, background .2s ease;
+}
+.nav-toggle span:nth-child(1){transform:translateY(-6px);}
+.nav-toggle span:nth-child(3){transform:translateY(6px);}
+.nav-toggle[aria-expanded="true"]{border-color:var(--ember-light);}
+.nav-toggle[aria-expanded="true"] span{background:var(--ember-light);}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg);}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg);}
+
+/* Gaveta de navegação mobile */
+.mobile-nav{display:none;}
+
+@media(min-width:1060px){
   .phonelink{display:inline;}
+}
+@media(max-width:1059px){
+  /* espaço apertado: telefone sai do topo (segue no menu, no Horário e no rodapé) */
+  nav.links{gap:20px;}
 }
 @media(max-width:900px){
   nav.links{display:none;}
+  .nav-toggle{display:block;}
+  .mobile-nav{
+    display:block;
+    position:absolute;
+    top:100%;left:0;right:0;
+    /* fundo sólido: backdrop-filter aninhado dentro do header (que já tem blur)
+       deixa o conteúdo do hero vazar por baixo em alguns navegadores */
+    background:var(--ink);
+    border-bottom:1px solid var(--line-strong);
+    box-shadow:0 24px 40px rgba(0,0,0,0.5);
+    overflow:hidden;
+    max-height:0;
+    opacity:0;
+    visibility:hidden;
+    transition:max-height .35s cubic-bezier(.16,.84,.44,1), opacity .25s ease, visibility .35s;
+  }
+  .mobile-nav.is-open{
+    max-height:480px;
+    opacity:1;
+    visibility:visible;
+  }
+  .mobile-nav-inner{
+    display:flex;flex-direction:column;
+    padding:6px 24px 20px;
+  }
+  .mobile-nav a{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:15px 0;
+    font-size:0.82rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--steel-1);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    transition:color .2s ease;
+  }
+  .mobile-nav a::after{
+    content:"→";
+    color:var(--ember);
+    font-size:0.95rem;
+    letter-spacing:0;
+  }
+  .mobile-nav a:hover,.mobile-nav a:active{color:var(--ember-light);}
+  .mobile-nav-phone{
+    justify-content:flex-start !important;
+    margin-top:6px;
+    border-bottom:none !important;
+    color:var(--ember-light) !important;
+    font-weight:600;
+  }
+  .mobile-nav-phone::after{content:none !important;}
+}
+@media(max-width:759px){
+  /* abaixo de 760px o "Agendar" já fica fixo na barra do rodapé —
+     tirar do topo libera espaço pro nome da marca e pro hambúrguer */
+  .nav-cta .btn{display:none;}
 }
 
 /* ---------- HERO ---------- */
