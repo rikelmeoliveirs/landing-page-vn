@@ -19,11 +19,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
+<div class="grain" aria-hidden="true"></div>
 
 <header class="nav">
   <div class="nav-row">
@@ -33,36 +35,45 @@
       </span>
       <span class="brand-name">Barbearia do Vini</span>
     </a>
-    <nav class="links">
-      <a href="#servicos">Serviços</a>
-      <a href="#galeria">Galeria</a>
+
+    <nav class="links" aria-label="Navegação principal">
+      <a href="#equipe">Equipe</a>
       <a href="#vclub">V Club</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#faq">Dúvidas</a>
       <a href="#horario">Horário</a>
       <a href="#local">Local</a>
     </nav>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+
     <div class="nav-cta">
       <a class="phonelink" href="tel:+5527999188055">(27) 99918-8055</a>
       <a class="btn btn-primary" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="1"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Agendar</a>
-      <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileNav">
-        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
-      </button>
-    </div>
-  </div>
-  <div class="mobile-nav" id="mobileNav">
-    <div class="mobile-nav-inner">
-      <a href="#servicos">Serviços</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#vclub">V Club</a>
-      <a href="#horario">Horário</a>
-      <a href="#local">Local</a>
-      <a href="#equipe">Equipe</a>
-      <a class="mobile-nav-phone" href="tel:+5527999188055">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
-        (27) 99918-8055
-      </a>
     </div>
   </div>
 </header>
+
+<nav class="nav-drawer" id="mobileNav" aria-hidden="true" aria-label="Menu mobile">
+  <div class="drawer-links">
+    <a href="#equipe">Equipe</a>
+    <a href="#vclub">V Club</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#faq">Dúvidas</a>
+    <a href="#horario">Horário</a>
+    <a href="#local">Local</a>
+  </div>
+  <div class="drawer-cta">
+    <a class="btn btn-primary" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">Agendar online</a>
+    <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener">Agendar no WhatsApp</a>
+    <a class="phonelink-drawer" href="tel:+5527999188055">(27) 99918-8055</a>
+  </div>
+</nav>
+<div class="nav-backdrop" id="navBackdrop"></div>
 
 <section class="hero">
   <div class="hero-media"></div>
@@ -71,7 +82,7 @@
     <h1>A única barbearia com assinatura mensal em <em>Serra Sede</em>.</h1>
     <p class="sub">Corte, barba e cuidado masculino num espaço limpo e organizado. Agende pelo AppBarber ou pelo WhatsApp e chegue direto pra cadeira.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">
+      <a class="btn btn-primary btn-magnetic" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="1"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Agendar online
       </a>
@@ -81,10 +92,12 @@
       </a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><b>5,0 ★</b><span>242 avaliações no Google</span></div>
-      <div class="stat"><b>3</b><span>barbeiros na casa</span></div>
-      <div class="stat"><b>1.000+</b><span>seguidores no Instagram</span></div>
-      <div class="stat"><b>30min–2h</b><span>tempo médio de visita</span></div>
+      <div class="stat"><b data-count-to="5" data-count-decimals="1" data-count-suffix=" ★">0,0 ★</b><span>242 avaliações no Google</span></div>
+      <div class="stat"><b data-count-to="3">0</b><span>barbeiros na casa</span></div>
+      <div class="stat"><b data-count-to="1000" data-count-suffix="+">0</b><span>seguidores no Instagram</span></div>
+      <a class="stat stat-link" href="#vclub">
+        <b>V Club</b><span>temos assinatura mensal <span class="stat-arrow">→</span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -121,10 +134,159 @@
         </li>
       </ul>
     </div>
-    <div class="about-photo" data-reveal>
-      <img src="assets/img/interior.jpg" alt="Interior da Barbearia do Vini, com cadeiras e espelhos" loading="lazy" width="675" height="900">
-      <span class="tag">Estúdio próprio · Serra Sede</span>
+    <div class="about-mosaic" data-reveal>
+      <figure class="m-tile m-hero">
+        <div class="m-parallax" data-parallax="10">
+          <img src="assets/img/sobre-ambiente.jpg" alt="Salão da Barbearia do Vini, com três cadeiras, espelhos com luz de LED e TVs" loading="lazy" width="960" height="1280">
+        </div>
+        <span class="tag">Estúdio próprio · Serra Sede</span>
+      </figure>
+      <figure class="m-tile m-tools">
+        <img src="assets/img/sobre-ferramentas.jpg" alt="Navalha, pente, tesouras e escova organizados na estação" loading="lazy" width="960" height="1280">
+      </figure>
+      <figure class="m-tile m-detail">
+        <img src="assets/img/sobre-detalhe.jpg" alt="Barbeiro segurando tesoura e pente antes do corte" loading="lazy" width="854" height="1280">
+      </figure>
+      <figure class="m-tile m-cafe">
+        <img src="assets/img/sobre-cafe.jpg" alt="Cliente com capa da Barbearia do Vini tomando café" loading="lazy" width="960" height="1280">
+      </figure>
+      <figure class="m-tile m-station">
+        <img src="assets/img/sobre-estacao.jpg" alt="Estação de trabalho com máquinas, produtos e acessórios organizados" loading="lazy" width="960" height="1280">
+      </figure>
     </div>
+  </div>
+</section>
+
+<section id="equipe">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Quem corta</p>
+      <h2>Os barbeiros da casa.</h2>
+      <p>Três pessoas, uma cadeira cada, sem revezamento de aprendiz. Rikelme, Rafael e Vinicius dividem o dia a dia da barbearia — a mesma equipe que aparece nas 242 avaliações.</p>
+    </div>
+    <div class="team-row">
+      <div class="team-card" data-reveal style="transition-delay:0ms">
+        <img class="team-photo" src="assets/img/team-rikelme.jpg" alt="Rikelme Oliveira, barbeiro na Barbearia do Vini" loading="lazy" width="500" height="500">
+        <div class="team-info"><b>Rikelme Oliveira</b><span>Barbeiro</span></div>
+      </div>
+      <div class="team-card" data-reveal style="transition-delay:80ms">
+        <img class="team-photo" src="assets/img/team-rafael.jpg" alt="Rafael Antônio, barbeiro na Barbearia do Vini" loading="lazy" width="500" height="500">
+        <div class="team-info"><b>Rafael Antônio</b><span>Barbeiro</span></div>
+      </div>
+      <div class="team-card" data-reveal style="transition-delay:160ms">
+        <img class="team-photo" src="assets/img/team-vinicius.jpg" alt="Vinicius Oliveira, barbeiro na Barbearia do Vini" loading="lazy" width="500" height="500">
+        <div class="team-info"><b>Vinicius Oliveira</b><span>Barbeiro</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vclub" class="vclub">
+  <div class="wrap">
+    <div class="section-head vclub-head" data-reveal>
+      <div class="vclub-seal" role="img" aria-label="Selo da assinatura V Club"></div>
+      <div>
+        <p class="eyebrow">Assinatura V Club</p>
+        <h2>Corte todo mês, sem pensar duas vezes.</h2>
+        <p>Escolha seu plano e garanta 4 atendimentos por mês a um preço fixo — além de 10% de desconto em serviços extras e produtos da casa.</p>
+        <span class="vclub-claim">A única barbearia com assinatura mensal em Serra Sede</span>
+      </div>
+    </div>
+
+    <div class="vclub-grid">
+      <div class="vclub-card" data-reveal style="transition-delay:0ms">
+        <div class="vclub-name">Barba</div>
+        <div class="vclub-price"><b>R$ 69,99</b><span>/mês</span></div>
+        <div class="vclub-savings">Avulso sairia <s>R$ 140</s> — economize 50%</div>
+        <ul class="vclub-list">
+          <li>4 barbas por mês</li>
+          <li>10% off em serviços extras e produtos</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Barba%2C%20R%2469%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>Assinar</a>
+      </div>
+
+      <div class="vclub-card featured" data-reveal style="transition-delay:100ms">
+        <span class="vclub-badge">Mais pedido</span>
+        <div class="vclub-name">Corte + Barba</div>
+        <div class="vclub-price"><b>R$ 149,99</b><span>/mês</span></div>
+        <div class="vclub-savings">Avulso sairia <s>R$ 300</s> — economize 50%</div>
+        <ul class="vclub-list">
+          <li>4 combos completos por mês</li>
+          <li>10% off em serviços extras e produtos</li>
+        </ul>
+        <a class="btn btn-primary" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Corte%20%2B%20Barba%2C%20R%24149%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>Assinar</a>
+      </div>
+
+      <div class="vclub-card" data-reveal style="transition-delay:200ms">
+        <div class="vclub-name">Corte</div>
+        <div class="vclub-price"><b>R$ 79,99</b><span>/mês</span></div>
+        <div class="vclub-savings">Avulso sairia <s>R$ 160</s> — economize 50%</div>
+        <ul class="vclub-list">
+          <li>4 cortes por mês</li>
+          <li>10% off em serviços extras e produtos</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Corte%2C%20R%2479%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>Assinar</a>
+      </div>
+    </div>
+
+    <p class="vclub-note">Assinaturas ativadas pelo AppBarber ou direto com a gente pelo WhatsApp.</p>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Trabalhos da casa</p>
+      <h2>Resultado real, cliente real.</h2>
+      <p>Uma amostra dos cortes que saem da cadeira todo dia — do infantil ao social, do degradê à textura.</p>
+    </div>
+
+    <div class="gallery-reel" data-reveal tabindex="0" role="region" aria-label="Galeria de fotos — arraste para navegar">
+      <div class="reel-track" data-count="5">
+        <figure>
+          <img src="assets/img/corte-02.jpg" alt="Corte social com risco lateral" loading="lazy" width="360" height="360">
+          <figcaption>Social crop + risco</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/corte-01.jpg" alt="Finalização de corte com pente" loading="lazy" width="360" height="360">
+          <figcaption>Textura na régua</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/corte-05.jpg" alt="Degradê com barba alinhada" loading="lazy" width="360" height="360">
+          <figcaption>Degradê + barba alinhada</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/corte-03.jpg" alt="Corte infantil com risco" loading="lazy" width="360" height="360">
+          <figcaption>Corte infantil</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/corte-04.jpg" alt="Corte com volume e movimento" loading="lazy" width="360" height="360">
+          <figcaption>Volume + movimento</figcaption>
+        </figure>
+        <!-- duplicated set for the seamless loop — hidden from assistive tech, the real set above already announces the gallery -->
+        <figure aria-hidden="true">
+          <img src="assets/img/corte-02.jpg" alt="" loading="lazy" width="360" height="360">
+          <figcaption>Social crop + risco</figcaption>
+        </figure>
+        <figure aria-hidden="true">
+          <img src="assets/img/corte-01.jpg" alt="" loading="lazy" width="360" height="360">
+          <figcaption>Textura na régua</figcaption>
+        </figure>
+        <figure aria-hidden="true">
+          <img src="assets/img/corte-05.jpg" alt="" loading="lazy" width="360" height="360">
+          <figcaption>Degradê + barba alinhada</figcaption>
+        </figure>
+        <figure aria-hidden="true">
+          <img src="assets/img/corte-03.jpg" alt="" loading="lazy" width="360" height="360">
+          <figcaption>Corte infantil</figcaption>
+        </figure>
+        <figure aria-hidden="true">
+          <img src="assets/img/corte-04.jpg" alt="" loading="lazy" width="360" height="360">
+          <figcaption>Volume + movimento</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p class="gallery-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8L22 12L18 16"/><path d="M6 8L2 12L6 16"/><line x1="2" y1="12" x2="22" y2="12"/></svg>Arraste pra ver mais</p>
   </div>
 </section>
 
@@ -204,39 +366,6 @@
   </div>
 </section>
 
-<section id="galeria">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <p class="eyebrow">Trabalhos da casa</p>
-      <h2>Resultado real, cliente real.</h2>
-      <p>Uma amostra dos cortes que saem da cadeira todo dia — do infantil ao social, do degradê à textura.</p>
-    </div>
-
-    <div class="gallery-grid">
-      <figure class="tall" data-reveal style="transition-delay:0ms">
-        <img src="assets/img/corte-02.jpg" alt="Corte social com risco lateral" loading="lazy" width="360" height="360">
-        <figcaption>Social crop + risco</figcaption>
-      </figure>
-      <figure data-reveal style="transition-delay:60ms">
-        <img src="assets/img/corte-01.jpg" alt="Finalização de corte com pente" loading="lazy" width="360" height="360">
-        <figcaption>Textura na régua</figcaption>
-      </figure>
-      <figure class="tall" data-reveal style="transition-delay:120ms">
-        <img src="assets/img/corte-05.jpg" alt="Degradê com barba alinhada" loading="lazy" width="360" height="360">
-        <figcaption>Degradê + barba alinhada</figcaption>
-      </figure>
-      <figure data-reveal style="transition-delay:180ms">
-        <img src="assets/img/corte-03.jpg" alt="Corte infantil com risco" loading="lazy" width="360" height="360">
-        <figcaption>Corte infantil</figcaption>
-      </figure>
-      <figure data-reveal style="transition-delay:240ms">
-        <img src="assets/img/corte-04.jpg" alt="Corte com volume e movimento" loading="lazy" width="360" height="360">
-        <figcaption>Volume + movimento</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
 <section class="testimonials">
   <div class="wrap">
     <div class="section-head" data-reveal>
@@ -282,53 +411,37 @@
   </div>
 </section>
 
-<section id="vclub" class="vclub">
+<section id="faq" class="faq">
   <div class="wrap">
-    <div class="section-head vclub-head" data-reveal>
-      <div class="vclub-seal" role="img" aria-label="Selo da assinatura V Club"></div>
-      <div>
-        <p class="eyebrow">Assinatura V Club</p>
-        <h2>Corte todo mês, sem pensar duas vezes.</h2>
-        <p>Escolha seu plano e garanta 4 atendimentos por mês a um preço fixo — além de 10% de desconto em serviços extras e produtos da casa.</p>
-        <span class="vclub-claim">A única barbearia com assinatura mensal em Serra Sede</span>
-      </div>
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Antes de assinar</p>
+      <h2>Dúvidas de quem tá pensando no V Club.</h2>
+      <p>As perguntas mais comuns antes de assinar — direto, sem letra miúda.</p>
     </div>
 
-    <div class="vclub-grid">
-      <div class="vclub-card" data-reveal style="transition-delay:0ms">
-        <div class="vclub-name">Barba</div>
-        <div class="vclub-price"><b>R$ 69,99</b><span>/mês</span></div>
-        <ul class="vclub-list">
-          <li>4 barbas por mês</li>
-          <li>10% off em serviços extras e produtos</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Barba%2C%20R%2469%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>Assinar</a>
-      </div>
-
-      <div class="vclub-card featured" data-reveal style="transition-delay:100ms">
-        <span class="vclub-badge">Mais pedido</span>
-        <div class="vclub-name">Corte + Barba</div>
-        <div class="vclub-price"><b>R$ 149,99</b><span>/mês</span></div>
-        <ul class="vclub-list">
-          <li>4 combos completos por mês</li>
-          <li>10% off em serviços extras e produtos</li>
-        </ul>
-        <a class="btn btn-primary" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Corte%20%2B%20Barba%2C%20R%24149%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>Assinar</a>
-      </div>
-
-      <div class="vclub-card" data-reveal style="transition-delay:200ms">
-        <div class="vclub-name">Corte</div>
-        <div class="vclub-price"><b>R$ 79,99</b><span>/mês</span></div>
-        <ul class="vclub-list">
-          <li>4 cortes por mês</li>
-          <li>10% off em serviços extras e produtos</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Corte%2C%20R%2479%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>Assinar</a>
-      </div>
+    <div class="faq-list" data-reveal>
+      <details class="faq-item">
+        <summary>Posso cancelar quando eu quiser?</summary>
+        <p>Sim. Sem multa e sem fidelidade mínima — avise pelo WhatsApp com alguns dias de antecedência da próxima cobrança.</p>
+      </details>
+      <details class="faq-item">
+        <summary>E se eu não usar os 4 atendimentos no mês?</summary>
+        <p>Os atendimentos são para uso dentro do próprio mês — não acumulam pro mês seguinte, então vale marcar com antecedência pra não perder.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Como funciona a cobrança?</summary>
+        <p>Mensal, pelo AppBarber, no cartão cadastrado na assinatura. Você recebe confirmação a cada cobrança.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Preciso agendar toda vez ou já tenho hora fixa?</summary>
+        <p>Agenda toda vez pelo AppBarber ou WhatsApp — assinantes têm prioridade de horário, mas não é hora fixa automática.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Tem taxa de adesão?</summary>
+        <p>Não. Você paga só a mensalidade do plano escolhido, sem taxa extra pra entrar.</p>
+      </details>
     </div>
-
-    <div class="vclub-scarcity"><span class="dot"></span>Vagas mensais limitadas</div>
-    <p class="vclub-note">Assinaturas ativadas pelo AppBarber ou direto com a gente pelo WhatsApp.</p>
+    <p style="margin-top:20px;color:var(--steel-3);font-size:0.82rem;">* Respostas de referência — confirme as condições atuais da assinatura pelo WhatsApp antes de assinar.</p>
   </div>
 </section>
 
@@ -356,35 +469,12 @@
   </div>
 </section>
 
-<section id="equipe">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <p class="eyebrow">Quem corta</p>
-      <h2>Os barbeiros da casa</h2>
-    </div>
-    <div class="team-row">
-      <div class="team-card" data-reveal style="transition-delay:0ms">
-        <img class="team-photo" src="assets/img/team-rikelme.jpg" alt="Rikelme Oliveira, barbeiro na Barbearia do Vini" loading="lazy" width="500" height="500">
-        <div class="team-info"><b>Rikelme Oliveira</b><span>Barbeiro</span></div>
-      </div>
-      <div class="team-card" data-reveal style="transition-delay:80ms">
-        <img class="team-photo" src="assets/img/team-rafael.jpg" alt="Rafael Antônio, barbeiro na Barbearia do Vini" loading="lazy" width="500" height="500">
-        <div class="team-info"><b>Rafael Antônio</b><span>Barbeiro</span></div>
-      </div>
-      <div class="team-card" data-reveal style="transition-delay:160ms">
-        <img class="team-photo" src="assets/img/team-vinicius.jpg" alt="Vinicius Oliveira, barbeiro na Barbearia do Vini" loading="lazy" width="500" height="500">
-        <div class="team-info"><b>Vinicius Oliveira</b><span>Barbeiro</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <div class="cta-band" data-reveal>
   <p class="eyebrow">Bora marcar?</p>
   <h2>Sua cadeira tá esperando.</h2>
   <p>Garanta seu horário ainda essa semana — sem fila, sem enrolação.</p>
   <div class="hero-ctas">
-    <a class="btn btn-primary" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="1"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Agendar online</a>
+    <a class="btn btn-primary btn-magnetic" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="1"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Agendar online</a>
     <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>Agendar no WhatsApp</a>
   </div>
 </div>
@@ -427,58 +517,7 @@
   <a class="btn btn-primary" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="1"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Agendar</a>
 </div>
 
-<script>
-(function(){
-  var toggle = document.getElementById('navToggle');
-  var panel  = document.getElementById('mobileNav');
-  if (!toggle || !panel) return;
-
-  function setOpen(open){
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    if (open) { panel.classList.add('is-open'); } else { panel.classList.remove('is-open'); }
-  }
-  function isOpen(){ return toggle.getAttribute('aria-expanded') === 'true'; }
-
-  toggle.addEventListener('click', function(){ setOpen(!isOpen()); });
-
-  // fecha ao tocar num link do menu
-  panel.addEventListener('click', function(e){
-    if (e.target && e.target.closest && e.target.closest('a')) setOpen(false);
-  });
-
-  // fecha ao clicar fora, com Esc, ou ao voltar pro desktop
-  document.addEventListener('click', function(e){
-    if (!isOpen()) return;
-    if (panel.contains(e.target) || toggle.contains(e.target)) return;
-    setOpen(false);
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && isOpen()) { setOpen(false); toggle.focus(); }
-  });
-  window.addEventListener('resize', function(){
-    if (window.innerWidth > 900 && isOpen()) setOpen(false);
-  });
-})();
-
-(function(){
-  var els = document.querySelectorAll('[data-reveal]');
-  if (!els.length) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
-    els.forEach(function(el){ el.classList.add('is-visible'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  els.forEach(function(el){ io.observe(el); });
-})();
-</script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
