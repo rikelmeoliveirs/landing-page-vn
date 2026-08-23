@@ -3,6 +3,16 @@
 
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // ---------- GA4 conversion events (Agendar, Assinar V Club, Ligar) ----------
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest ? e.target.closest("[data-gtag-event]") : null;
+    if (!el || typeof window.gtag !== "function") return;
+    window.gtag("event", el.getAttribute("data-gtag-event"), {
+      event_label: el.getAttribute("data-gtag-label") || "",
+      page_location: window.location.href,
+    });
+  });
+
   // ---------- Mobile nav drawer ----------
   var toggle = document.getElementById("navToggle");
   var drawer = document.getElementById("mobileNav");
