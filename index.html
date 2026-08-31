@@ -1,533 +1,1025 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TQ42PM9MW8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TQ42PM9MW8');
-  </script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TQ42PM9MW8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-TQ42PM9MW8");
+</script>
 
-  <title>Barbearia do Vini — Corte, Barba e V Club em Serra, ES</title>
-  <meta name="description" content="Barbearia do Vini, em Serra Sede (Serra/ES). Corte, barba e cuidado masculino com agendamento pelo WhatsApp ou AppBarber. Conheça o V Club, nossa assinatura mensal.">
-  <meta name="theme-color" content="#0b0c0e">
-  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
-  <link rel="apple-touch-icon" href="assets/img/logo-dark.png">
-
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:site_name" content="Barbearia do Vini">
-  <meta property="og:title" content="Barbearia do Vini — Corte, Barba e V Club em Serra, ES">
-  <meta property="og:description" content="Corte, barba e cuidado masculino em Serra Sede. Agende pelo WhatsApp ou AppBarber e conheça o V Club, nossa assinatura mensal.">
-  <meta property="og:image" content="assets/img/logo-dark.png">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="assets/css/style.css">
+<title>Barbearia do Vini — Corte, Barba e V Club em Serra, ES</title>
+<meta name="description" content="Barbearia do Vini, em Serra Sede (Serra/ES). Corte, barba e cuidado masculino com agendamento pelo WhatsApp ou AppBarber. Conheça o V Club, nossa assinatura mensal.">
+<meta name="theme-color" content="#212529">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%20%20%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%230b0c0e%22/%3E%0A%20%20%3Crect%20x%3D%2212%22%20y%3D%2212%22%20width%3D%2240%22%20height%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23aeb2b9%22%20stroke-width%3D%222%22/%3E%0A%20%20%3Ctext%20x%3D%2232%22%20y%3D%2239%22%20font-family%3D%22Georgia%2C%20%27Times%20New%20Roman%27%2C%20serif%22%20font-size%3D%2220%22%20fill%3D%22%23eceef0%22%20text-anchor%3D%22middle%22%20font-weight%3D%22700%22%3EVN%3C/text%3E%0A%3C/svg%3E%0A">
 </head>
 <body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 
-<div class="grain" aria-hidden="true"></div>
+<style>
+@font-face{font-family:'Satoshi';font-weight:400;font-style:normal;font-display:swap;src:url('assets/fonts/satoshi-400.woff2') format('woff2')}
+@font-face{font-family:'Satoshi';font-weight:500;font-style:normal;font-display:swap;src:url('assets/fonts/satoshi-500.woff2') format('woff2')}
+@font-face{font-family:'Satoshi';font-weight:700;font-style:normal;font-display:swap;src:url('assets/fonts/satoshi-700.woff2') format('woff2')}
+</style>
+<style>
+.wallbg{background-image:url('assets/img/hero-wall.jpg')}
+</style>
 
-<header class="nav">
-  <div class="nav-row">
-    <a class="brandmark" href="#" aria-label="Barbearia do Vini — início">
-      <span class="brand-logo-wrap">
-        <img class="brand-logo" src="assets/img/logo-mark.png" alt="" width="46" height="38">
-      </span>
-      <span class="brand-name">Barbearia do Vini</span>
-    </a>
+<style>
+/* ============ TOKENS — minimalist neutral palette: black, white, silver.
+   Named after the client's supplied scale (Platinum → near-black). --gold /
+   --gold-soft keep their old names so every existing var() reference below
+   still resolves correctly; the values are silver now, not warm gold. */
+:root{
+  --bg:#212529;        /* near-black */
+  --surface:#343a40;   /* Shadow Grey */
+  --surface-2:#212529; /* sections no longer alternate fill — see .sec.alt */
+  --raised:#343a40;    /* Shadow Grey */
+  --ink:#f8f9fa;        /* Platinum */
+  --ink-soft:#ced4da;   /* Pale Slate */
+  --ink-faint:#adb5bd;  /* Slate Grey */
+  --line:#343a40;       /* Shadow Grey */
+  --line-strong:#495057;/* Gunmetal */
+  --gold:#adb5bd;        /* Slate Grey — was warm gold, now silver */
+  --gold-soft:#e9ecef;   /* Alabaster Grey — was warm gold-soft, now bright silver */
+  --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+[id]{scroll-margin-top:76px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Satoshi',-apple-system,Segoe UI,sans-serif;
+  font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{line-height:1.05;text-wrap:balance;font-weight:800}
+p{max-width:60ch}
+img,canvas{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.1rem,4vw,2.4rem)}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-soft);font-weight:500;display:flex;align-items:center;gap:.6rem;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--gold);flex:none}
 
-    <nav class="links" aria-label="Navegação principal">
-      <a href="#equipe">Equipe</a>
-      <a href="#vclub">V Club</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#faq">Dúvidas</a>
-      <a href="#horario">Horário</a>
-      <a href="#local">Local</a>
-    </nav>
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 
-    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu">
-      <span></span><span></span><span></span>
-    </button>
+/* ============ NAV ============ */
+.nav{position:sticky;top:0;z-index:60;padding:.9rem 0;transition:background .25s,border-color .25s,backdrop-filter .25s}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.1rem,4vw,2.4rem);display:flex;align-items:center;gap:1.6rem}
+.nav.solid{background:rgba(33,37,41,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:.6rem;margin-right:0}
+.brand svg{width:26px;height:26px;flex:none}
+.brand b{font-family:'Playfair Display',serif;font-weight:800;font-size:1.05rem;letter-spacing:.01em}
+.nav-links{display:none;gap:1.8rem;font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+@media (min-width:820px){.nav-links{display:flex}}
+.nav-center{display:flex;align-items:center;gap:1.2rem;margin-right:auto}
+@media (min-width:820px){
+  .nav-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+  .nav-center{grid-column:2;justify-self:center;margin-right:0;gap:1.6rem}
+  a.btn.btn-gold.btn-sm{grid-column:3;justify-self:end}
+}
+.nav-burger{
+  display:none;width:44px;height:44px;flex:none;border:1px solid var(--line-strong);border-radius:8px;
+  align-items:center;justify-content:center;
+}
+.nav-burger svg{width:17px;height:17px}
+@media (max-width:819px){.nav-burger{display:inline-flex}}
+.nav-drawer{
+  display:none;flex-direction:column;
+  max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.1rem,4vw,2.4rem) .6rem;
+}
+.nav-drawer.open{display:flex}
+.nav-drawer a{
+  padding:.85rem .1rem;border-top:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);
+}
+.nav-drawer a:hover{color:var(--gold-soft)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.nav-links a{transition:color .15s}
+.nav-links a:hover{color:var(--ink)}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.15rem;border-radius:6px;
+  font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  white-space:nowrap;transition:transform .12s,filter .12s;
+}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.btn svg{width:14px;height:14px;flex:none}
+.btn-gold{background:linear-gradient(180deg,#f8f9fa,#adb5bd);color:#212529;border:1px solid #f8f9fa}
+.btn-outline{background:rgba(255,255,255,.03);color:var(--ink);border:1px solid var(--line-strong)}
+.btn-outline:hover{border-color:var(--gold-soft)}
+.btn-sm{padding:.55rem .9rem;font-size:.66rem}
 
-    <div class="nav-cta">
-      <a class="phonelink" href="tel:+5527999188055" data-gtag-event="ligar_click" data-gtag-label="nav">(27) 99918-8055</a>
-      <a class="btn btn-primary" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" data-gtag-event="agendar_click" data-gtag-label="nav_appbarber" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="1"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Agendar</a>
+/* ============ HERO ============ */
+.hero{
+  /* align-items:flex-start (was center) + a smaller top pad: the kicker now
+     starts near the same height as the top of the logo panel, instead of the
+     whole text block being vertically centered lower than the artwork. */
+  position:relative;overflow:hidden;min-height:min(92vh,720px);display:flex;align-items:flex-start;
+  background-color:#212529;
+  padding:clamp(2.4rem,5.5vw,4rem) clamp(1.1rem,5vw,3rem) clamp(2.4rem,5vw,3.4rem);
+}
+/* the photo lives in its own fixed panel anchored to the right edge — not as a
+   full-bleed cover background. On a wide hero, background-position on a
+   full-width cover image has almost no horizontal room to move (the image is
+   already stretched edge-to-edge), so shifting its X was doing nothing. A
+   dedicated right-hand panel is what actually keeps the logo on the opposite
+   side from the headline, at any viewport width. */
+.hero-photo{
+  /* plain cover left zero vertical slack here (the box is taller, relative to
+     its width, than the source photo, so it was always height-bound — the Y
+     in background-position had nothing to move within). Sizing the image a
+     bit past cover's minimum creates real crop room, so Y now actually pans
+     the logo up/down instead of silently doing nothing. */
+  position:absolute;top:0;right:0;bottom:0;z-index:0;width:60%;
+  background-size:auto 128%;background-position:52% 0%;background-repeat:no-repeat;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(90deg,
+      rgba(33,37,41,1) 0%,
+      rgba(33,37,41,1) 30%,
+      rgba(33,37,41,.88) 42%,
+      rgba(33,37,41,.5) 56%,
+      rgba(33,37,41,.14) 76%,
+      rgba(33,37,41,.06) 100%),
+    linear-gradient(0deg,rgba(33,37,41,.35) 0%,rgba(33,37,41,.05) 40%,rgba(33,37,41,.2) 100%);
+}
+@media (max-width:760px){
+  /* below this width the text column spans the full viewport, so the photo
+     panel steps back to a faint backdrop instead of a competing element */
+  .hero-photo{width:100%;opacity:.3}
+  .hero::before{
+    background:
+      linear-gradient(0deg,rgba(33,37,41,.55) 0%,rgba(33,37,41,.15) 45%,rgba(33,37,41,.4) 100%),
+      linear-gradient(0deg,rgba(33,37,41,.85) 0%,rgba(33,37,41,.8) 100%);
+  }
+}
+.hero-in{position:relative;z-index:2;max-width:640px;width:100%;margin:0 auto 0 0}
+.hero .kicker{
+  display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(233,236,239,.4);border-radius:3px;
+  padding:.42rem .7rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);
+}
+.hero .kicker .o{width:6px;height:6px;border-radius:999px;border:1px solid var(--gold-soft);flex:none}
+.hero h1{
+  font-family:'Playfair Display',Georgia,serif;font-weight:800;text-transform:uppercase;color:#f8f9fa;
+  font-size:clamp(2.1rem,6.4vw,4.2rem);line-height:1.02;letter-spacing:.005em;margin-top:1.1rem;
+}
+.hero h1 em{
+  font-style:italic;font-weight:700;background:linear-gradient(92deg,#f8f9fa 0%,#dee2e6 45%,#adb5bd 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero .sub{font-size:1rem;line-height:1.6;color:#ced4da;margin-top:1.15rem;max-width:40ch}
+.hero .ctas{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.7rem}
+.hero .proof-title{
+  margin-top:1.6rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;color:#9297a0;
+}
+.hero .proof-title + .proof{margin-top:.5rem}
+.hero .proof{
+  margin-top:1.6rem;display:inline-flex;align-items:center;gap:.65rem;flex-wrap:wrap;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:#ced4da;
+  border:1px solid rgba(233,236,239,.3);border-radius:999px;
+  padding:.6rem .6rem .6rem 1rem;background:rgba(255,255,255,.04);
+}
+/* a fully round pill only reads right on one line — once the stats wrap to
+   two lines on a narrow phone, drop to a soft rectangle instead */
+@media (max-width:400px){.hero .proof{border-radius:14px;font-size:.7rem}}
+.hero .proof .rating{display:inline-flex;align-items:center;gap:.4rem;color:var(--gold-soft);font-weight:600}
+.hero .proof .rating svg{width:13px;height:13px}
+.hero .proof b{color:#f8f9fa}
+.hero .proof .sep{color:#6c757d}
+.scrolldown{
+  position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:.4rem;color:#adb5bd;
+  font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+}
+.scrolldown svg{width:14px;height:14px;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@media (prefers-reduced-motion:reduce){.scrolldown svg{animation:none}}
+
+/* ============ QUEUE STRIP (signature: the "sem fila" promise, made visible) ============ */
+.queue-strip{background:var(--surface);border-bottom:1px solid var(--line);position:relative;z-index:5}
+.queue-in{display:flex;align-items:center;gap:1.4rem;padding:.65rem 0;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:.72rem}
+.queue-label{display:flex;align-items:center;gap:.55rem;color:var(--ink-soft);letter-spacing:.06em;text-transform:uppercase;font-size:.64rem;flex:none}
+.pulse-dot{width:7px;height:7px;border-radius:999px;background:var(--gold-soft);position:relative;flex:none}
+.pulse-dot::after{content:"";position:absolute;inset:-4px;border-radius:999px;border:1px solid var(--gold-soft);animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.8);opacity:0}}
+@media (prefers-reduced-motion:reduce){.pulse-dot::after{animation:none;display:none}}
+.queue-track{display:flex;gap:1.6rem;flex-wrap:wrap;flex:1;overflow-x:auto}
+.q-item{display:inline-flex;align-items:center;gap:.45rem;color:var(--ink);white-space:nowrap}
+.q-item em{font-style:normal;color:var(--ink-faint)}
+/* status reads by fill, not by hue — stays legible in a strictly black/white/silver
+   palette: a solid dot means occupied, a hollow ring means free */
+.qd{width:7px;height:7px;border-radius:999px;flex:none;box-sizing:border-box}
+.qd.free{background:transparent;border:1.5px solid var(--ink-soft)}
+.qd.busy{background:var(--ink-soft);border:1.5px solid var(--ink-soft)}
+.queue-note{margin-left:auto;color:var(--ink-faint);font-size:.62rem;flex:none}
+@media (max-width:700px){.queue-note{display:none}}
+
+/* ============ SECTIONS ============ */
+.sec{padding:clamp(3.4rem,8vw,5.6rem) 0}
+.sec.alt{background:var(--surface-2)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;margin-bottom:2.2rem;flex-wrap:wrap}
+.sec-head h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.5rem);letter-spacing:-.01em}
+.sec-head .sub{color:var(--ink-soft);font-size:.94rem;max-width:44ch;margin-top:.5rem}
+.sec-nav{display:flex;gap:.5rem}
+.sec-nav button{
+  width:38px;height:38px;border-radius:999px;border:1px solid var(--line-strong);
+  display:grid;place-items:center;transition:border-color .15s,background .15s;
+}
+.sec-nav button:hover{border-color:var(--gold-soft);background:rgba(233,236,239,.08)}
+.sec-nav svg{width:16px;height:16px}
+
+/* ============ PHOTO PLACEHOLDER ============ */
+.ph{
+  position:relative;border-radius:10px;overflow:hidden;background:
+    linear-gradient(150deg,#343a40 0%,#212529 100%);
+  border:1px solid var(--line);
+}
+.ph::before{
+  content:"";position:absolute;inset:0;opacity:.5;
+  background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.025) 0 2px,transparent 2px 14px);
+}
+.ph .icn{position:absolute;inset:0;display:grid;place-items:center;color:#495057;opacity:.55}
+.ph .icn svg{width:15%;height:15%;min-width:26px;min-height:26px}
+.ph .tag{
+  position:absolute;left:.6rem;bottom:.6rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;
+  letter-spacing:.08em;text-transform:uppercase;color:#ced4da;background:rgba(33,37,41,.6);
+  padding:.25rem .5rem;border-radius:4px;
+}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* real content added on top of the mockup: service description line, real
+   testimonial grid, real photo gallery, hours + location cards */
+.svc-desc{font-size:.78rem;color:var(--ink-faint);margin-top:-.2rem}
+.team-photo-img{object-position:center 18%}
+
+.testi-grid{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:960px;margin:0 auto}
+.testi-card{background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:1.4rem 1.3rem;display:flex;flex-direction:column;gap:.8rem}
+.testi-card .stars{color:var(--gold-soft);font-size:.9rem;letter-spacing:.15em}
+.testi-card blockquote{font-size:.9rem;color:var(--ink-soft);line-height:1.55}
+.testi-card .cite{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink);font-weight:600}
+.testi-card .cite span{color:var(--ink-faint);font-weight:400;display:block;margin-top:.15em}
+
+.gal-card{width:min(70vw,240px);border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--raised)}
+.gal-img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.gal-cap{padding:.7rem .8rem;font-size:.8rem;color:var(--ink-soft)}
+
+.info-grid{display:grid;gap:1.1rem;grid-template-columns:1fr}
+@media (min-width:700px){.info-grid{grid-template-columns:1fr 1fr}}
+.info-card{background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:1.6rem 1.5rem}
+.info-card h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:1rem}
+.hours-row{display:flex;justify-content:space-between;font-size:.9rem;padding:.5rem 0;border-top:1px solid var(--line);color:var(--ink-soft)}
+.hours-row:first-of-type{border-top:0}
+.hours-row.closed span:last-child{color:var(--ink-faint)}
+.info-note{margin-top:1rem;font-size:.78rem;color:var(--ink-faint)}
+.info-card .addr{font-size:.98rem;color:var(--ink-soft);line-height:1.6}
+.info-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem}
+
+/* ============ CAROUSEL ============ */
+.carousel{display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.5rem;scrollbar-width:none}
+.carousel::-webkit-scrollbar{display:none}
+.carousel > *{scroll-snap-align:start;flex:0 0 auto}
+
+/* service tiles */
+.svc-card{width:min(78vw,290px);background:var(--raised);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.svc-card .ph{aspect-ratio:4/3;border-radius:0;border:0;border-bottom:1px solid var(--line)}
+.svc-card .body{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.5rem}
+.svc-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700}
+.svc-card .meta{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink-soft);display:flex;justify-content:space-between}
+.svc-card .price{color:var(--gold-soft);font-weight:600}
+.svc-card .more{margin-top:.3rem;font-size:.78rem;color:var(--ink-soft);display:inline-flex;align-items:center;gap:.35rem}
+
+/* team */
+.team-grid{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.team-card{background:var(--raised);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.team-card .ph{aspect-ratio:3/4;border-radius:0;border:0;border-bottom:1px solid var(--line)}
+.team-card .body{padding:1rem 1.1rem 1.2rem}
+.team-card h3{font-family:'Playfair Display',serif;font-size:1.1rem}
+.team-card .role{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--gold-soft);margin-top:.25rem}
+.team-card .desc{font-size:.84rem;color:var(--ink-soft);margin-top:.55rem}
+.team-card .wa{margin-top:.8rem;font-size:.76rem;display:inline-flex;align-items:center;gap:.4rem;color:var(--ink-soft)}
+
+/* testimonial */
+.testimonial{max-width:640px;margin:0 auto;text-align:center}
+.testimonial .stars{color:var(--gold-soft);font-size:1.1rem;letter-spacing:.2em}
+.testimonial blockquote{
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:600;
+  font-size:clamp(1.3rem,3.4vw,2rem);line-height:1.32;margin:1.1rem 0 0;color:var(--ink);
+}
+.testimonial .cite{margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.03em;color:var(--ink-faint)}
+
+/* V Club — the page's one commercial offer gets a framed panel so it reads as
+   featured without needing color to say so */
+.vclub-panel{border:1px solid var(--line-strong);border-radius:20px;padding:clamp(1.8rem,5vw,3rem)}
+.vclub-head{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start;margin-bottom:2.2rem}
+@media (min-width:640px){.vclub-head{flex-direction:row;align-items:center;gap:1.8rem}}
+.seal{width:84px;height:84px;flex:none;color:var(--ink-faint)}
+@media (prefers-reduced-motion:no-preference){.seal{animation:seal-spin 40s linear infinite}}
+@keyframes seal-spin{to{transform:rotate(360deg)}}
+.vclub-head h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3.6vw,2.1rem);margin-top:.6rem}
+.vclub-badge{
+  display:inline-block;margin-top:1rem;padding:.5rem .9rem;border:1px solid var(--line-strong);border-radius:6px;
+  font-size:.8rem;color:var(--ink-soft);
+}
+.plan-grid{display:grid;gap:1.1rem;grid-template-columns:1fr}
+@media (min-width:760px){.plan-grid{grid-template-columns:repeat(3,1fr)}}
+.plan-card{background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:1.4rem 1.3rem;display:flex;flex-direction:column;gap:.6rem}
+.plan-card.hi{
+  background:linear-gradient(165deg,#f8f9fa,#ced4da);color:#212529;border-color:#f8f9fa;
+  box-shadow:0 0 0 1px #f8f9fa;
+}
+.plan-card .badge{align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:#f8f9fa;background:#212529;padding:.2rem .5rem;border-radius:4px}
+.plan-card h3{font-family:'Playfair Display',serif;font-size:1.25rem}
+.plan-card .price{font-family:'IBM Plex Mono',monospace;color:var(--gold-soft);font-size:1.05rem}
+.plan-card.hi .price{color:#212529}
+.plan-card .price small{color:var(--ink-faint);font-size:.66rem;font-weight:400}
+.plan-card.hi .price small{color:#495057}
+.plan-card .save{font-size:.76rem;color:var(--ink-faint)}
+.plan-card .save s{opacity:.75}
+.plan-card.hi .save{color:#495057}
+.plan-card ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;font-size:.82rem;color:var(--ink-soft);margin-top:.2rem}
+.plan-card.hi ul{color:#343a40}
+.plan-card li{display:flex;gap:.5rem}
+.plan-card li svg{width:13px;height:13px;color:var(--gold-soft);flex:none;margin-top:.15em}
+.plan-card.hi li svg{color:#212529}
+.plan-card .btn{justify-content:center;margin-top:.6rem}
+.plan-card.hi .btn-gold{background:#212529;color:#f8f9fa;border-color:#212529}
+.plans-note{margin-top:1.6rem;font-size:.76rem;color:var(--ink-faint);text-align:center}
+/* the two questions someone actually has right before subscribing — kept
+   inside the V Club panel so they don't have to hunt for the full FAQ */
+.vclub-faq{max-width:640px;margin:1.6rem auto 0;display:flex;flex-direction:column;gap:.6rem}
+.vclub-faq .faq-item{background:var(--raised);border-color:var(--line-strong)}
+.vclub-faq summary{font-size:.86rem;padding:.9rem 1.1rem}
+.vclub-faq p{padding:0 1.1rem 1rem;font-size:.84rem}
+
+/* faq */
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:.7rem}
+.faq-item{border:1px solid var(--line);border-radius:10px;background:var(--raised);overflow:hidden}
+.faq-item summary{
+  cursor:pointer;list-style:none;padding:1.1rem 1.3rem;display:flex;justify-content:space-between;
+  align-items:center;gap:1rem;font-weight:600;font-size:.94rem;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";font-family:'IBM Plex Mono',monospace;color:var(--gold-soft);font-size:1.1rem;flex:none;
+  transition:transform .2s;
+}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{padding:0 1.3rem 1.2rem;color:var(--ink-soft);font-size:.88rem;max-width:none}
+
+/* before/after */
+.ba-card{width:min(84vw,360px);border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--raised)}
+.ba-split{display:flex;aspect-ratio:16/10}
+.ba-split .ph{border-radius:0;border:0;flex:1}
+.ba-split .ph:first-child{border-right:1px solid var(--line-strong)}
+.ba-lbls{display:flex;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.ba-lbls span{flex:1;padding:.55rem .8rem}
+.ba-lbls span:first-child{border-right:1px solid var(--line)}
+.ba-name{padding:0 .8rem .8rem;font-size:.82rem;color:var(--ink-soft)}
+
+/* benefits */
+.benefits{display:grid;gap:1.1rem;grid-template-columns:repeat(2,1fr)}
+@media (max-width:480px){.benefits{grid-template-columns:1fr}}
+@media (min-width:900px){.benefits{grid-template-columns:repeat(5,1fr)}}
+.benefit{padding:1.4rem 1.1rem;border:1px solid var(--line);border-radius:12px;background:var(--raised);text-align:left}
+.benefit svg{width:22px;height:22px;color:var(--gold-soft)}
+.benefit p{margin-top:.8rem;font-size:.86rem;color:var(--ink-soft);max-width:20ch}
+
+/* content blocks */
+.content-block{display:grid;gap:2.4rem;align-items:center;grid-template-columns:1fr}
+@media (min-width:860px){.content-block{grid-template-columns:1fr 1fr}}
+.content-block .ph{aspect-ratio:5/4}
+.content-block.rev{direction:rtl}
+.content-block.rev > *{direction:ltr}
+.content-block h3{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3.2vw,2rem)}
+.content-block p{color:var(--ink-soft);margin-top:1rem;font-size:.96rem}
+.content-block + .content-block{margin-top:clamp(3rem,7vw,4.6rem)}
+
+/* signup */
+.signup{background:var(--raised);border:1px solid var(--line);border-radius:16px;padding:clamp(1.8rem,5vw,3rem);display:grid;gap:2rem;grid-template-columns:1fr}
+@media (min-width:800px){.signup{grid-template-columns:1fr 1.1fr;align-items:center}}
+.signup h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3.6vw,2.2rem);max-width:16ch}
+.signup .sub{color:var(--ink-soft);margin-top:.8rem;font-size:.94rem;max-width:36ch}
+.channel-card{display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;padding:1rem 0}
+.channel-icon{width:44px;height:44px;color:var(--gold-soft)}
+.channel-card .btn{width:100%;max-width:260px}
+.signup .note{font-size:.7rem;color:var(--ink-faint);font-family:'IBM Plex Mono',monospace}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:clamp(3rem,7vw,4.6rem) 0 2rem}
+.foot-grid{display:grid;gap:2.2rem;grid-template-columns:1.4fr repeat(3,1fr)}
+@media (max-width:820px){.foot-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.foot-grid{grid-template-columns:1fr}}
+.foot-brand{display:flex;align-items:center;gap:.6rem}
+.foot-brand svg{width:24px;height:24px}
+.foot-brand b{font-family:'Playfair Display',serif;font-weight:800}
+.foot-desc{color:var(--ink-faint);font-size:.84rem;margin-top:1rem;max-width:30ch}
+.foot-social{display:flex;gap:.6rem;margin-top:1.2rem}
+.foot-social a{width:34px;height:34px;border:1px solid var(--line-strong);border-radius:999px;display:grid;place-items:center;transition:border-color .15s}
+.foot-social a:hover{border-color:var(--gold-soft)}
+.foot-social svg{width:15px;height:15px;color:var(--ink-soft)}
+.foot h4{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:1rem}
+.foot ul{list-style:none;display:flex;flex-direction:column;gap:.65rem;font-size:.86rem;color:var(--ink-soft)}
+.foot ul a:hover{color:var(--gold-soft)}
+.foot-bottom{margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--ink-faint)}
+
+/* misc */
+.overflow-x{overflow-x:auto}
+</style>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <div class="nav-center">
+      <div class="nav-links nav-links-left">
+        <a href="#servicos">Serviços</a>
+        <a href="#barbeiros">Barbeiros</a>
+      </div>
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><rect x="2" y="2" width="28" height="28"/><path d="M8 8l8 16 8-16M16 24V13"/></svg>
+        <b>Barbearia do Vini</b>
+      </a>
+      <div class="nav-links nav-links-right">
+        <a href="#vclub">V Club</a>
+        <a href="#local">Localização</a>
+      </div>
     </div>
+    <a class="btn btn-gold btn-sm" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+      Agendar
+    </a>
+    <button class="nav-burger" id="navBurger" type="button" aria-expanded="false" aria-controls="navDrawer" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </div>
-</header>
-
-<nav class="nav-drawer" id="mobileNav" aria-hidden="true" aria-label="Menu mobile">
-  <div class="drawer-links">
-    <a href="#equipe">Equipe</a>
-    <a href="#vclub">V Club</a>
-    <a href="#galeria">Galeria</a>
+  <div class="nav-drawer" id="navDrawer">
     <a href="#servicos">Serviços</a>
-    <a href="#faq">Dúvidas</a>
-    <a href="#horario">Horário</a>
-    <a href="#local">Local</a>
-  </div>
-  <div class="drawer-cta">
-    <a class="btn btn-primary" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" data-gtag-event="agendar_click" data-gtag-label="drawer_appbarber" target="_blank" rel="noopener">Agendar online</a>
-    <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio" data-gtag-event="agendar_click" data-gtag-label="drawer_whatsapp" target="_blank" rel="noopener">Agendar no WhatsApp</a>
-    <a class="phonelink-drawer" href="tel:+5527999188055" data-gtag-event="ligar_click" data-gtag-label="drawer">(27) 99918-8055</a>
+    <a href="#barbeiros">Barbeiros</a>
+    <a href="#vclub">V Club</a>
+    <a href="#local">Localização</a>
   </div>
 </nav>
-<div class="nav-backdrop" id="navBackdrop"></div>
 
-<section class="hero">
-  <div class="hero-media"></div>
-  <div class="hero-inner">
-    <p class="eyebrow">Barbearia em Serra Sede · Espírito Santo</p>
+<header class="hero" id="top">
+  <div class="hero-photo wallbg"></div>
+  <div class="hero-in">
+    <span class="kicker"><span class="o"></span>Barbearia em Serra Sede · Espírito Santo</span>
     <h1>A única barbearia com assinatura mensal em <em>Serra Sede</em>.</h1>
     <p class="sub">Corte, barba e cuidado masculino num espaço limpo e organizado. Agende pelo AppBarber ou pelo WhatsApp e chegue direto pra cadeira.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary btn-magnetic" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" data-gtag-event="agendar_click" data-gtag-label="hero_appbarber" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="1"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <div class="ctas">
+      <a class="btn btn-gold" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
         Agendar online
       </a>
-      <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio" data-gtag-event="agendar_click" data-gtag-label="hero_whatsapp" target="_blank" rel="noopener">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>
+      <a class="btn btn-outline" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Agendar no WhatsApp
       </a>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><b data-count-to="5" data-count-decimals="1" data-count-suffix=" ★">0,0 ★</b><span>242 avaliações no Google</span></div>
-      <div class="stat"><b data-count-to="3">0</b><span>barbeiros na casa</span></div>
-      <div class="stat"><b data-count-to="1000" data-count-suffix="+">0</b><span>seguidores no Instagram</span></div>
-      <a class="stat stat-link" href="#vclub">
-        <b>V Club</b><span>temos assinatura mensal <span class="stat-arrow">→</span></span>
-      </a>
+    <p class="proof-title">Avaliações</p>
+    <div class="proof">
+      <span class="rating" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z"/></svg>5,0</span>
+      <span><b>242</b> avaliações no Google</span><span class="sep">·</span>
+      <span><b>3</b> barbeiros na casa</span>
     </div>
   </div>
-</section>
-
-<section id="sobre">
-  <div class="wrap about-grid">
-    <div data-reveal>
-      <p class="eyebrow">Sobre a casa</p>
-      <h2>Ambiente pensado pra você sair melhor do que entrou.</h2>
-      <ul class="about-list">
-        <li>
-          <div>
-            <b>Local limpo e organizado</b>
-            <span class="muted">Estrutura própria da barbearia, cadeiras confortáveis e ambiente cuidado em cada detalhe.</span>
-          </div>
-        </li>
-        <li>
-          <div>
-            <b>Equipe de barbeiros da casa</b>
-            <span class="muted">Rikelme, Rafael e Vinicius dividem a cadeira — cada corte com atenção de quem entende do ofício.</span>
-          </div>
-        </li>
-        <li>
-          <div>
-            <b>Agendamento sem fila</b>
-            <span class="muted">Marque pelo WhatsApp ou pelo AppBarber e tenha horário garantido, sem perder a tarde esperando.</span>
-          </div>
-        </li>
-        <li>
-          <div>
-            <b>Wi-Fi, estacionamento e acessibilidade</b>
-            <span class="muted">Espaço também preparado para atender crianças. Pagamento em Pix, débito, crédito ou dinheiro.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="about-mosaic" data-reveal>
-      <figure class="m-tile m-hero">
-        <div class="m-parallax" data-parallax="10">
-          <img src="assets/img/sobre-ambiente.jpg" alt="Salão da Barbearia do Vini, com três cadeiras, espelhos com luz de LED e TVs" loading="lazy" width="960" height="1280">
-        </div>
-        <span class="tag">Estúdio próprio · Serra Sede</span>
-      </figure>
-      <figure class="m-tile m-tools">
-        <img src="assets/img/sobre-ferramentas.jpg" alt="Navalha, pente, tesouras e escova organizados na estação" loading="lazy" width="960" height="1280">
-      </figure>
-      <figure class="m-tile m-detail">
-        <img src="assets/img/sobre-detalhe.jpg" alt="Barbeiro segurando tesoura e pente antes do corte" loading="lazy" width="854" height="1280">
-      </figure>
-      <figure class="m-tile m-cafe">
-        <img src="assets/img/sobre-cafe.jpg" alt="Cliente com capa da Barbearia do Vini tomando café" loading="lazy" width="960" height="1280">
-      </figure>
-      <figure class="m-tile m-station">
-        <img src="assets/img/sobre-estacao.jpg" alt="Estação de trabalho com máquinas, produtos e acessórios organizados" loading="lazy" width="960" height="1280">
-      </figure>
-    </div>
+  <div class="scrolldown">
+    <span>role</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
   </div>
-</section>
+</header>
 
-<section id="equipe">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <p class="eyebrow">Quem corta</p>
-      <h2>Os barbeiros da casa.</h2>
-      <p>Três pessoas, uma cadeira cada, sem revezamento de aprendiz. Rikelme, Rafael e Vinicius dividem o dia a dia da barbearia — a mesma equipe que aparece nas 242 avaliações.</p>
-    </div>
-    <div class="team-row">
-      <div class="team-card" data-reveal style="transition-delay:0ms">
-        <img class="team-photo" src="assets/img/team-rikelme.jpg" alt="Rikelme Oliveira, barbeiro na Barbearia do Vini" loading="lazy" width="500" height="500">
-        <div class="team-info"><b>Rikelme Oliveira</b><span>Barbeiro</span></div>
-      </div>
-      <div class="team-card" data-reveal style="transition-delay:80ms">
-        <img class="team-photo" src="assets/img/team-rafael.jpg" alt="Rafael Antônio, barbeiro na Barbearia do Vini" loading="lazy" width="500" height="500">
-        <div class="team-info"><b>Rafael Antônio</b><span>Barbeiro</span></div>
-      </div>
-      <div class="team-card" data-reveal style="transition-delay:160ms">
-        <img class="team-photo" src="assets/img/team-vinicius.jpg" alt="Vinicius Oliveira, barbeiro na Barbearia do Vini" loading="lazy" width="500" height="500">
-        <div class="team-info"><b>Vinicius Oliveira</b><span>Barbeiro</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+<main>
 
-<section id="vclub" class="vclub">
-  <div class="wrap">
-    <div class="section-head vclub-head" data-reveal>
-      <div class="vclub-seal" role="img" aria-label="Selo da assinatura V Club"></div>
-      <div>
-        <p class="eyebrow">Assinatura V Club</p>
-        <h2>Corte todo mês, sem pensar duas vezes.</h2>
-        <p>Escolha seu plano e garanta 4 atendimentos por mês a um preço fixo — além de 10% de desconto em serviços extras e produtos da casa.</p>
-        <span class="vclub-claim">A única barbearia com assinatura mensal em Serra Sede</span>
-      </div>
-    </div>
-
-    <div class="vclub-grid">
-      <div class="vclub-card" data-reveal style="transition-delay:0ms">
-        <div class="vclub-name">Barba</div>
-        <div class="vclub-price"><b>R$ 69,99</b><span>/mês</span></div>
-        <div class="vclub-savings">Avulso sairia <s>R$ 140</s> — economize 50%</div>
-        <ul class="vclub-list">
-          <li>4 barbas por mês</li>
-          <li>10% off em serviços extras e produtos</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Barba%2C%20R%2469%2C99%20por%20m%C3%AAs" data-gtag-event="vclub_assinar_click" data-gtag-label="Barba" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>Assinar</a>
-      </div>
-
-      <div class="vclub-card featured" data-reveal style="transition-delay:100ms">
-        <span class="vclub-badge">Mais pedido</span>
-        <div class="vclub-name">Corte + Barba</div>
-        <div class="vclub-price"><b>R$ 149,99</b><span>/mês</span></div>
-        <div class="vclub-savings">Avulso sairia <s>R$ 300</s> — economize 50%</div>
-        <ul class="vclub-list">
-          <li>4 combos completos por mês</li>
-          <li>10% off em serviços extras e produtos</li>
-        </ul>
-        <a class="btn btn-primary" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Corte%20%2B%20Barba%2C%20R%24149%2C99%20por%20m%C3%AAs" data-gtag-event="vclub_assinar_click" data-gtag-label="Corte + Barba" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>Assinar</a>
-      </div>
-
-      <div class="vclub-card" data-reveal style="transition-delay:200ms">
-        <div class="vclub-name">Corte</div>
-        <div class="vclub-price"><b>R$ 79,99</b><span>/mês</span></div>
-        <div class="vclub-savings">Avulso sairia <s>R$ 160</s> — economize 50%</div>
-        <ul class="vclub-list">
-          <li>4 cortes por mês</li>
-          <li>10% off em serviços extras e produtos</li>
-        </ul>
-        <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Corte%2C%20R%2479%2C99%20por%20m%C3%AAs" data-gtag-event="vclub_assinar_click" data-gtag-label="Corte" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>Assinar</a>
-      </div>
-    </div>
-
-    <p class="vclub-note">Assinaturas ativadas pelo AppBarber ou direto com a gente pelo WhatsApp.</p>
-  </div>
-</section>
-
-<section id="galeria">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <p class="eyebrow">Trabalhos da casa</p>
-      <h2>Resultado real, cliente real.</h2>
-      <p>Uma amostra dos cortes que saem da cadeira todo dia — do infantil ao social, do degradê à textura.</p>
-    </div>
-
-    <div class="gallery-reel" data-reveal tabindex="0" role="region" aria-label="Galeria de fotos — arraste para navegar">
-      <div class="reel-track" data-count="5">
-        <figure>
-          <img src="assets/img/corte-02.jpg" alt="Corte social com risco lateral" loading="lazy" width="360" height="360">
-          <figcaption>Social crop + risco</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/img/corte-01.jpg" alt="Finalização de corte com pente" loading="lazy" width="360" height="360">
-          <figcaption>Textura na régua</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/img/corte-05.jpg" alt="Degradê com barba alinhada" loading="lazy" width="360" height="360">
-          <figcaption>Degradê + barba alinhada</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/img/corte-03.jpg" alt="Corte infantil com risco" loading="lazy" width="360" height="360">
-          <figcaption>Corte infantil</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/img/corte-04.jpg" alt="Corte com volume e movimento" loading="lazy" width="360" height="360">
-          <figcaption>Volume + movimento</figcaption>
-        </figure>
-        <!-- duplicated set for the seamless loop — hidden from assistive tech, the real set above already announces the gallery -->
-        <figure aria-hidden="true">
-          <img src="assets/img/corte-02.jpg" alt="" loading="lazy" width="360" height="360">
-          <figcaption>Social crop + risco</figcaption>
-        </figure>
-        <figure aria-hidden="true">
-          <img src="assets/img/corte-01.jpg" alt="" loading="lazy" width="360" height="360">
-          <figcaption>Textura na régua</figcaption>
-        </figure>
-        <figure aria-hidden="true">
-          <img src="assets/img/corte-05.jpg" alt="" loading="lazy" width="360" height="360">
-          <figcaption>Degradê + barba alinhada</figcaption>
-        </figure>
-        <figure aria-hidden="true">
-          <img src="assets/img/corte-03.jpg" alt="" loading="lazy" width="360" height="360">
-          <figcaption>Corte infantil</figcaption>
-        </figure>
-        <figure aria-hidden="true">
-          <img src="assets/img/corte-04.jpg" alt="" loading="lazy" width="360" height="360">
-          <figcaption>Volume + movimento</figcaption>
-        </figure>
-      </div>
-    </div>
-    <p class="gallery-hint"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8L22 12L18 16"/><path d="M6 8L2 12L6 16"/><line x1="2" y1="12" x2="22" y2="12"/></svg>Arraste pra ver mais</p>
-  </div>
-</section>
-
-<section id="servicos" class="services">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <p class="eyebrow">Cardápio de serviços</p>
-      <h2>Preço na régua, sem surpresa no caixa.</h2>
-      <p>Os serviços mais pedidos da casa — do corte rápido ao combo completo. Faixa de preço geral: R$ 5 a R$ 140.</p>
-    </div>
-
-    <div class="price-board" data-reveal>
-      <div class="price-row featured">
-        <div class="name">Corte<small>Diversos estilos, na régua ou na tesoura</small></div>
-        <div class="dur">40 min</div>
-        <div class="amt">R$ 40</div>
-      </div>
-      <div class="price-row featured">
-        <div class="name">Barba<small>Toalha quente e navalha</small></div>
-        <div class="dur">20 min</div>
-        <div class="amt">R$ 35</div>
-      </div>
-      <div class="price-row featured">
-        <div class="name">Corte + Barba<small>O combo mais pedido da casa</small></div>
-        <div class="dur">60 min</div>
-        <div class="amt">R$ 75</div>
-      </div>
-      <div class="price-row">
-        <div class="name">Corte + Sobrancelha</div>
-        <div class="dur">40 min</div>
-        <div class="amt">R$ 45</div>
-      </div>
-      <div class="price-row">
-        <div class="name">Cavanhaque</div>
-        <div class="dur">20 min</div>
-        <div class="amt">R$ 25</div>
-      </div>
-      <div class="price-row">
-        <div class="name">Design de sobrancelha</div>
-        <div class="dur">10 min</div>
-        <div class="amt">R$ 5</div>
-      </div>
-      <div class="price-row">
-        <div class="name">Barboterapia com ozônio<small>Cuidado extra pra pele sensível</small></div>
-        <div class="dur">30 min</div>
-        <div class="amt">R$ 45</div>
-      </div>
-      <div class="price-row">
-        <div class="name">Selagem / Botox capilar</div>
-        <div class="dur">50 min</div>
-        <div class="amt">R$ 75</div>
-      </div>
-      <div class="price-row">
-        <div class="name">Luzes<small>A partir de</small></div>
-        <div class="dur">30 min</div>
-        <div class="amt">R$ 80</div>
-      </div>
-      <div class="price-row">
-        <div class="name">Platinado<small>A partir de</small></div>
-        <div class="dur">30 min</div>
-        <div class="amt">R$ 90</div>
-      </div>
-    </div>
-
-    <div class="price-note">
-      <span>Cardápio completo tem mais de 25 serviços e combos, com opções a partir de R$ 5.</span>
-      <a href="https://sites.appbarber.com.br/barbeariadovini-0cm4" data-gtag-event="ver_cardapio_click" data-gtag-label="servicos" target="_blank" rel="noopener">Ver cardápio completo →</a>
-    </div>
-
-    <div class="amenities">
-      <div class="amenity"><span class="dot"></span>Estacionamento</div>
-      <div class="amenity"><span class="dot"></span>Acessibilidade</div>
-      <div class="amenity"><span class="dot"></span>Atende crianças</div>
-      <div class="amenity"><span class="dot"></span>Wi-Fi grátis</div>
-      <div class="amenity"><span class="dot"></span>Pix, débito, crédito e dinheiro</div>
-    </div>
-  </div>
-</section>
-
-<section class="testimonials">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <p class="eyebrow">Quem já passou pela cadeira</p>
-      <h2>242 avaliações no Google, nota 5,0.</h2>
-      <p>Três avaliações reais, direto do nosso perfil no Google — sem edição, do jeito que os clientes escreveram.</p>
-    </div>
-
-    <div class="testimonial-grid">
-      <div class="testimonial-card" data-reveal style="transition-delay:0ms">
-        <p class="testimonial-quote">Muito top o atendimento, recomendo e tem vários serviços diferenciados que só encontra por aqui, os são gente fina demais.</p>
-        <div class="testimonial-meta">
-          <div>
-            <div class="testimonial-stars">★★★★★</div>
-            <div class="testimonial-author">Paulo Henrique Lima</div>
-          </div>
-          <span class="testimonial-when">Google · 5 meses atrás</span>
+<!-- ============ SOBRE NÓS (primeira seção, pedido do cliente) ============ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="content-block rv" id="sobre">
+        <div class="ph"><img class="cb-img" style="object-position:center 62%" src="assets/img/sobre-ambiente.jpg" alt="Salão da Barbearia do Vini, com cadeiras, espelhos com luz de LED e TVs" loading="lazy"></div>
+        <div>
+          <span class="eyebrow">Sobre nós</span>
+          <h3>Ambiente pensado pra você sair melhor do que entrou.</h3>
+          <p>Estrutura própria da barbearia, cadeiras confortáveis e ambiente cuidado em cada detalhe. Rikelme, Rafael e Vinicius dividem a cadeira — cada corte com atenção de quem entende do ofício.</p>
         </div>
       </div>
-
-      <div class="testimonial-card" data-reveal style="transition-delay:80ms">
-        <p class="testimonial-quote">Excelentes profissionais, dedicados e que entregam um trabalho impecável. Ambiente acolhedor e confortável!</p>
-        <div class="testimonial-meta">
-          <div>
-            <div class="testimonial-stars">★★★★★</div>
-            <div class="testimonial-author">Kederson Felix</div>
-          </div>
-          <span class="testimonial-when">Google · 2 meses atrás</span>
+      <div class="content-block rev rv">
+        <div class="ph"><img class="cb-img" style="object-position:center 42%" src="assets/img/sobre-ferramentas.jpg" alt="Navalha, pente, tesouras e escova organizados na estação" loading="lazy"></div>
+        <div>
+          <span class="eyebrow">Agendamento sem fila</span>
+          <h3>Marque, chegue, sente na cadeira.</h3>
+          <p>Marque pelo WhatsApp ou pelo AppBarber e tenha horário garantido, sem perder a tarde esperando. Chegue com 5–10 min de antecedência — atrasos podem reduzir o tempo do seu serviço.</p>
         </div>
       </div>
-
-      <div class="testimonial-card" data-reveal style="transition-delay:160ms">
-        <p class="testimonial-quote">Barbearia excelente, corto aqui desde 2023 e nunca troquei… ideal pra quem gosta de descontrair e sair menos feio.</p>
-        <div class="testimonial-meta">
-          <div>
-            <div class="testimonial-stars">★★★★★</div>
-            <div class="testimonial-author">Pedro Cerqueira</div>
-          </div>
-          <span class="testimonial-when">Google · 5 meses atrás</span>
+      <div class="content-block rv">
+        <div class="ph"><img class="cb-img" style="object-position:center 66%" src="assets/img/sobre-detalhe.jpg" alt="Barbeiro segurando tesoura e pente antes do corte" loading="lazy"></div>
+        <div>
+          <span class="eyebrow">Estrutura completa</span>
+          <h3>Wi-Fi, estacionamento e espaço pra criança também.</h3>
+          <p>Espaço preparado para atender crianças, com Wi-Fi grátis e estacionamento. Pagamento em Pix, débito, crédito ou dinheiro — você escolhe.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="faq" class="faq">
-  <div class="wrap">
-    <div class="section-head" data-reveal>
-      <p class="eyebrow">Antes de assinar</p>
-      <h2>Dúvidas de quem tá pensando no V Club.</h2>
-      <p>As perguntas mais comuns antes de assinar — direto, sem letra miúda.</p>
-    </div>
-
-    <div class="faq-list" data-reveal>
-      <details class="faq-item">
-        <summary>Posso cancelar quando eu quiser?</summary>
-        <p>Sim. Sem multa e sem fidelidade mínima — avise pelo WhatsApp com alguns dias de antecedência da próxima cobrança.</p>
-      </details>
-      <details class="faq-item">
-        <summary>E se eu não usar os 4 atendimentos no mês?</summary>
-        <p>Os atendimentos são para uso dentro do próprio mês — não acumulam pro mês seguinte, então vale marcar com antecedência pra não perder.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Como funciona a cobrança?</summary>
-        <p>Mensal, pelo AppBarber, no cartão cadastrado na assinatura. Você recebe confirmação a cada cobrança.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Preciso agendar toda vez ou já tenho hora fixa?</summary>
-        <p>Agenda toda vez pelo AppBarber ou WhatsApp — assinantes têm prioridade de horário, mas não é hora fixa automática.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Tem taxa de adesão?</summary>
-        <p>Não. Você paga só a mensalidade do plano escolhido, sem taxa extra pra entrar.</p>
-      </details>
-    </div>
-    <p style="margin-top:20px;color:var(--steel-3);font-size:0.82rem;">* Respostas de referência — confirme as condições atuais da assinatura pelo WhatsApp antes de assinar.</p>
-  </div>
-</section>
-
-<section id="horario">
-  <div class="wrap">
-    <div class="info-grid" data-reveal>
-      <div class="info-card">
-        <h3>Horário de funcionamento</h3>
-        <div class="hours-row closed"><span>Segunda-feira</span><span>Fechado</span></div>
-        <div class="hours-row"><span>Terça a Sexta</span><span>09h–12h · 13h–20h</span></div>
-        <div class="hours-row"><span>Sábado</span><span>08h–12h · 13h–18h</span></div>
-        <div class="hours-row closed"><span>Domingo</span><span>Fechado</span></div>
-        <p style="margin-top:20px;color:var(--steel-3);font-size:0.85rem;">Chegue com 5–10 min de antecedência. Atrasos podem reduzir o tempo do seu serviço.</p>
+<!-- ============ SERVIÇOS ============ -->
+  <section class="sec alt" id="servicos">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="eyebrow">O que fazemos</span>
+          <h2>Serviços em destaque</h2>
+        </div>
+        <div class="sec-nav">
+          <button aria-label="Anterior" data-scroll="-1" data-target="svc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button aria-label="Próximo" data-scroll="1" data-target="svc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
       </div>
-      <div class="info-card addr" id="local">
-        <h3>Onde estamos</h3>
-        <p>R. Cassiano Castelo, 8<br>Serra Sede<br>Serra / ES, 29176-010</p>
-        <p class="muted">Tempo médio de visita: 30 min a 2h</p>
-        <div class="info-actions">
-          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Barbearia+do+Vini+R.+Cassiano+Castelo+8+Serra+ES" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Ver rotas</a>
-          <a class="btn btn-ghost" href="tel:+5527999188055" data-gtag-event="ligar_click" data-gtag-label="horario"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Ligar agora</a>
+      <div class="carousel rv" id="svc">
+        <div class="svc-card">
+          <div class="ph"><div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.5 15.5M20 20L11 11"/></svg></div><span class="tag">Foto: corte</span></div>
+          <div class="body">
+            <h3>Corte</h3>
+            <p class="meta"><span class="price">R$ 40</span><span>40 min</span></p>
+            <p class="svc-desc">Diversos estilos, na régua ou na tesoura</p>
+            <a class="more" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">Agendar este serviço →</a>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="ph"><div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3c4 2 4 8 0 10M18 3c-4 2-4 8 0 10M6 13c0 5 4 8 6 8s6-3 6-8"/></svg></div><span class="tag">Foto: barba</span></div>
+          <div class="body">
+            <h3>Barba</h3>
+            <p class="meta"><span class="price">R$ 35</span><span>20 min</span></p>
+            <p class="svc-desc">Toalha quente e navalha</p>
+            <a class="more" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">Agendar este serviço →</a>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="ph"><div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><path d="M18 4L8.5 15.5M18 20L11 11M18 4v16"/></svg></div><span class="tag">Foto: corte + barba</span></div>
+          <div class="body">
+            <h3>Corte + Barba</h3>
+            <p class="meta"><span class="price">R$ 75</span><span>60 min</span></p>
+            <p class="svc-desc">O combo mais pedido da casa</p>
+            <a class="more" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">Agendar este serviço →</a>
+          </div>
+        </div>
+        <div class="svc-card">
+          <div class="ph"><div class="icn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 15q4-9 8-9t8 9"/></svg></div><span class="tag">Foto: sobrancelha</span></div>
+          <div class="body">
+            <h3>Sobrancelha</h3>
+            <p class="meta"><span class="price">R$ 5</span><span>10 min</span></p>
+            <p class="svc-desc">Design de sobrancelha</p>
+            <a class="more" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">Agendar este serviço →</a>
+          </div>
+        </div>
+      </div>
+      <p class="plans-note rv">Cardápio completo tem mais de 25 serviços e combos, com opções a partir de R$ 5. <a href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener" style="color:var(--gold-soft)">Ver cardápio completo →</a></p>
+    </div>
+  </section>
+
+<!-- ============ V CLUB (em destaque: painel emoldurado, é a principal oferta comercial da página) ============ -->
+  <section class="sec" id="vclub">
+    <div class="wrap">
+      <div class="vclub-panel rv">
+        <div class="vclub-head">
+          <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+            <defs><path id="sealPath" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+            <text font-size="7.6" letter-spacing="2.5" fill="currentColor">
+              <textPath href="#sealPath">ASSINATURA · CLUBE DE ASSINATURA · V CLUB · </textPath>
+            </text>
+            <circle cx="60" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1"/>
+            <text x="60" y="67" text-anchor="middle" font-size="22" font-weight="800" fill="currentColor" font-family="'Playfair Display',serif">V</text>
+          </svg>
+          <div>
+            <span class="kicker"><span class="o"></span>Assinatura V Club</span>
+            <h2>Corte todo mês, sem pensar duas vezes.</h2>
+            <p class="sub">Escolha seu plano e garanta 4 atendimentos por mês a um preço fixo — além de 10% de desconto em serviços extras e produtos da casa.</p>
+            <span class="vclub-badge">★ A única barbearia com assinatura mensal em Serra Sede</span>
+          </div>
+        </div>
+
+        <div class="plan-grid">
+          <div class="plan-card">
+            <h3>Barba</h3>
+            <p class="price">R$ 69,99<small>/mês</small></p>
+            <p class="save">Avulso sairia <s>R$ 140</s> — economize 50%</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>4 barbas por mês</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>10% off em serviços extras e produtos</li>
+            </ul>
+            <a class="btn btn-outline" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Barba%2C%20R%2469%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Assinar
+            </a>
+          </div>
+          <div class="plan-card hi">
+            <span class="badge">Mais pedido</span>
+            <h3>Corte + Barba</h3>
+            <p class="price">R$ 149,99<small>/mês</small></p>
+            <p class="save">Avulso sairia <s>R$ 300</s> — economize 50%</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>4 combos completos por mês</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>10% off em serviços extras e produtos</li>
+            </ul>
+            <a class="btn btn-gold" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Corte%20%2B%20Barba%2C%20R%24149%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Assinar
+            </a>
+          </div>
+          <div class="plan-card">
+            <h3>Corte</h3>
+            <p class="price">R$ 79,99<small>/mês</small></p>
+            <p class="save">Avulso sairia <s>R$ 160</s> — economize 50%</p>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>4 cortes por mês</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>10% off em serviços extras e produtos</li>
+            </ul>
+            <a class="btn btn-outline" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Corte%2C%20R%2479%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Assinar
+            </a>
+          </div>
+        </div>
+        <p class="plans-note">Assinaturas ativadas pelo AppBarber ou direto com a gente pelo WhatsApp.</p>
+        <div class="vclub-faq">
+          <details class="faq-item">
+            <summary>Posso cancelar quando eu quiser?</summary>
+            <p>Sim. Sem multa e sem fidelidade mínima — avise pelo WhatsApp com alguns dias de antecedência da próxima cobrança.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Como funciona a cobrança?</summary>
+            <p>Mensal, pelo AppBarber, no cartão cadastrado na assinatura. Você recebe confirmação a cada cobrança.</p>
+          </details>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="cta-band" data-reveal>
-  <p class="eyebrow">Bora marcar?</p>
-  <h2>Sua cadeira tá esperando.</h2>
-  <p>Garanta seu horário ainda essa semana — sem fila, sem enrolação.</p>
-  <div class="hero-ctas">
-    <a class="btn btn-primary btn-magnetic" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" data-gtag-event="agendar_click" data-gtag-label="cta_band_appbarber" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="1"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Agendar online</a>
-    <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio" data-gtag-event="agendar_click" data-gtag-label="cta_band_whatsapp" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>Agendar no WhatsApp</a>
+<!-- ============ BARBEIROS ============ -->
+  <section class="sec alt" id="barbeiros">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="eyebrow">Quem corta</span>
+          <h2>Os barbeiros da VN</h2>
+        </div>
+      </div>
+      <div class="team-grid rv">
+        <div class="team-card">
+          <div class="ph"><img class="team-photo-img" src="assets/img/team-rikelme.jpg" alt="Rikelme Oliveira, barbeiro na Barbearia do Vini" loading="lazy"></div>
+          <div class="body">
+            <h3>Rikelme Oliveira</h3>
+            <p class="role">Barbeiro</p>
+            <a class="wa" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20agendar%20com%20o%20Rikelme" target="_blank" rel="noopener">💬 Chamar no WhatsApp</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="ph"><img class="team-photo-img" src="assets/img/team-rafael.jpg" alt="Rafael Antônio, barbeiro na Barbearia do Vini" loading="lazy"></div>
+          <div class="body">
+            <h3>Rafael Antônio</h3>
+            <p class="role">Barbeiro</p>
+            <a class="wa" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20agendar%20com%20o%20Rafael" target="_blank" rel="noopener">💬 Chamar no WhatsApp</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="ph"><img class="team-photo-img" src="assets/img/team-vinicius.jpg" alt="Vinicius Oliveira, barbeiro na Barbearia do Vini" loading="lazy"></div>
+          <div class="body">
+            <h3>Vinicius Oliveira</h3>
+            <p class="role">Barbeiro</p>
+            <a class="wa" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20agendar%20com%20o%20Vinicius" target="_blank" rel="noopener">💬 Chamar no WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<div class="queue-strip">
+  <div class="wrap queue-in">
+    <span class="queue-label"><span class="pulse-dot"></span>Fila agora</span>
+    <div class="queue-track">
+      <span class="q-item"><b class="qd free"></b>Rikelme <em>livre agora</em></span>
+      <span class="q-item"><b class="qd busy"></b>Rafael <em>ocupado até 14h20</em></span>
+      <span class="q-item"><b class="qd free"></b>Vinicius <em>livre em 15 min</em></span>
+    </div>
+    <span class="queue-note">exemplo — no site real isso vem do AppBarber</span>
   </div>
 </div>
 
-<footer>
-  <div class="footer-grid">
-    <div class="col">
-      <img class="footer-logo" src="assets/img/logo-lockup.png" alt="Barbearia do Vini" loading="lazy" width="96" height="56">
-      <b>Barbearia do Vini</b>
-      R. Cassiano Castelo, 8<br>
-      Serra Sede, Serra / ES<br>
-      29176-010
+<!-- ============ DEPOIMENTO ============ -->
+  <section class="sec" id="depoimento">
+    <div class="wrap">
+      <div class="rv">
+        <h2 class="sr-only">Depoimentos de clientes</h2>
+        <div class="testi-grid">
+          <div class="testi-card">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <blockquote>"Muito top o atendimento, recomendo e tem vários serviços diferenciados que só encontra por aqui, os são gente fina demais."</blockquote>
+            <p class="cite">Paulo Henrique Lima <span>· Google, 5 meses atrás</span></p>
+          </div>
+          <div class="testi-card">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <blockquote>"Excelentes profissionais, dedicados e que entregam um trabalho impecável. Ambiente acolhedor e confortável!"</blockquote>
+            <p class="cite">Kederson Felix <span>· Google, 2 meses atrás</span></p>
+          </div>
+          <div class="testi-card">
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <blockquote>"Barbearia excelente, corto aqui desde 2023 e nunca troquei… ideal pra quem gosta de descontrair e sair menos feio."</blockquote>
+            <p class="cite">Pedro Cerqueira <span>· Google, 5 meses atrás</span></p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col">
-      <b>Contato</b>
-      <a href="tel:+5527999188055" data-gtag-event="ligar_click" data-gtag-label="footer">(27) 99918-8055</a><br>
-      <a href="https://www.instagram.com/vn.barbearia/" target="_blank" rel="noopener">@vn.barbearia</a><br>
-      <a href="https://www.facebook.com/barbeariadovini07/" target="_blank" rel="noopener">Facebook</a>
+  </section>
+
+
+
+<!-- ============ ANTES & DEPOIS ============ -->
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="eyebrow">Resultado real, cliente real</span>
+          <h2>Trabalhos da VN</h2>
+        </div>
+        <div class="sec-nav">
+          <button aria-label="Anterior" data-scroll="-1" data-target="ba"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button aria-label="Próximo" data-scroll="1" data-target="ba"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+      <div class="carousel rv" id="ba">
+        <div class="gal-card">
+          <img class="gal-img" src="assets/img/corte-01.jpg" alt="Corte social com risco lateral" loading="lazy">
+          <p class="gal-cap">Social crop + risco</p>
+        </div>
+        <div class="gal-card">
+          <img class="gal-img" src="assets/img/corte-02.jpg" alt="Finalização de corte com pente" loading="lazy">
+          <p class="gal-cap">Textura na régua</p>
+        </div>
+        <div class="gal-card">
+          <img class="gal-img" src="assets/img/corte-03.jpg" alt="Degradê com barba alinhada" loading="lazy">
+          <p class="gal-cap">Degradê + barba alinhada</p>
+        </div>
+        <div class="gal-card">
+          <img class="gal-img" src="assets/img/corte-04.jpg" alt="Corte infantil com risco" loading="lazy">
+          <p class="gal-cap">Corte infantil</p>
+        </div>
+        <div class="gal-card">
+          <img class="gal-img" src="assets/img/corte-05.jpg" alt="Corte com volume e movimento" loading="lazy">
+          <p class="gal-cap">Volume + movimento</p>
+        </div>
+      </div>
     </div>
-    <div class="col">
-      <b>Agendamento</b>
-      <a href="https://sites.appbarber.com.br/barbeariadovini-0cm4" data-gtag-event="agendar_click" data-gtag-label="footer_appbarber" target="_blank" rel="noopener">AppBarber</a><br>
-      <a href="https://wa.me/5527999188055" data-gtag-event="agendar_click" data-gtag-label="footer_whatsapp" target="_blank" rel="noopener">WhatsApp</a><br>
-      <a href="https://taggo.one/barbeariadovini" target="_blank" rel="noopener">Cartão digital</a>
+  </section>
+
+<!-- ============ BENEFÍCIOS ============ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="eyebrow">Comodidades</span>
+          <h2>O que tem na VN</h2>
+        </div>
+      </div>
+      <div class="benefits rv">
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <p>Estacionamento no local</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <p>Acessibilidade</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3.2"/><circle cx="16" cy="8" r="3.2"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M10 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+          <p>Atende crianças</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l7-5 7 5v8l-7 5-7-5z"/><path d="M12 3v18"/></svg>
+          <p>Wi-Fi grátis</p>
+        </div>
+        <div class="benefit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+          <p>Pix, débito, crédito e dinheiro</p>
+        </div>
+      </div>
     </div>
-    <div class="col">
-      <b>Avaliações</b>
-      <a href="https://g.page/r/CT1bedQJuBEJEAI/review" target="_blank" rel="noopener">Avaliar no Google</a><br>
-      <span>5,0 ★ · 242 avaliações</span>
+  </section>
+
+<!-- ============ FAQ ============ -->
+  <section class="sec alt" id="faq">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <span class="eyebrow">Antes de agendar</span>
+          <h2>Dúvidas de quem tá pensando no V Club.</h2>
+          <p class="sub">As perguntas mais comuns antes de assinar — direto, sem letra miúda.</p>
+        </div>
+      </div>
+      <div class="faq-list rv">
+        <details class="faq-item">
+          <summary>Posso cancelar quando eu quiser?</summary>
+          <p>Sim. Sem multa e sem fidelidade mínima — avise pelo WhatsApp com alguns dias de antecedência da próxima cobrança.</p>
+        </details>
+        <details class="faq-item">
+          <summary>E se eu não usar os 4 atendimentos no mês?</summary>
+          <p>Os atendimentos são para uso dentro do próprio mês — não acumulam pro mês seguinte, então vale marcar com antecedência pra não perder.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Como funciona a cobrança?</summary>
+          <p>Mensal, pelo AppBarber, no cartão cadastrado na assinatura. Você recebe confirmação a cada cobrança.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Preciso agendar toda vez ou já tenho hora fixa?</summary>
+          <p>Agenda toda vez pelo AppBarber ou WhatsApp — assinantes têm prioridade de horário, mas não é hora fixa automática.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Tem taxa de adesão?</summary>
+          <p>Não. Você paga só a mensalidade do plano escolhido, sem taxa extra pra entrar.</p>
+        </details>
+      </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© Barbearia do Vini — Serra, ES</span>
-    <span>Ter a Sex 09h–12h · 13h–20h — Sáb 08h–12h · 13h–18h</span>
+  </section>
+
+<!-- ============ CANAL DO WHATSAPP ============ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="signup rv">
+        <div>
+          <span class="eyebrow">Fica por dentro</span>
+          <h2>Segue nosso canal no WhatsApp</h2>
+          <p class="sub">Vaga de última hora, promoção de horário parado, novidade do V Club — direto no seu WhatsApp, sem grupo, sem spam.</p>
+        </div>
+        <div class="channel-card">
+          <svg class="channel-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>
+          <a class="btn btn-gold" href="https://whatsapp.com/channel/0029VbCUjuD1CYoVOoM3K93N" target="_blank" rel="noopener" style="justify-content:center">Seguir canal</a>
+          <span class="note">Abre no WhatsApp — é só tocar em "Seguir".</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ============ HORÁRIO + LOCAL (real, estava faltando na versão anterior) ============ -->
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="info-grid rv">
+        <div class="info-card">
+          <h3>Horário de funcionamento</h3>
+          <div class="hours-row closed"><span>Segunda-feira</span><span>Fechado</span></div>
+          <div class="hours-row"><span>Terça a Sexta</span><span>09h–12h · 13h–20h</span></div>
+          <div class="hours-row"><span>Sábado</span><span>08h–12h · 13h–18h</span></div>
+          <div class="hours-row closed"><span>Domingo</span><span>Fechado</span></div>
+          <p class="info-note">Chegue com 5–10 min de antecedência. Atrasos podem reduzir o tempo do seu serviço.</p>
+        </div>
+        <div class="info-card" id="local">
+          <h3>Onde estamos</h3>
+          <p class="addr">R. Cassiano Castelo, 8<br>Serra Sede<br>Serra / ES, 29176-010</p>
+          <div class="info-actions">
+            <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=Barbearia+do+Vini+R.+Cassiano+Castelo+8+Serra+ES" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ver rotas
+            </a>
+            <a class="btn btn-outline" href="tel:+5527999188055">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Ligar agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><rect x="2" y="2" width="28" height="28"/><path d="M8 8l8 16 8-16M16 24V13"/></svg>
+          <b>Barbearia do Vini</b>
+        </div>
+        <p class="foot-desc">R. Cassiano Castelo, 8 — Serra Sede<br>Serra / ES, 29176-010<br><a href="tel:+5527999188055" style="color:inherit">(27) 99918-8055</a></p>
+        <div class="foot-social">
+          <a href="https://www.instagram.com/vn.barbearia/" target="_blank" rel="noopener" aria-label="Instagram @vn.barbearia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://www.facebook.com/barbeariadovini07/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://g.page/r/CT1bedQJuBEJEAI/review" target="_blank" rel="noopener" aria-label="Avaliar no Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Agendamento</h4>
+        <ul>
+          <li><a href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">AppBarber</a></li>
+          <li><a href="https://wa.me/5527999188055" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#vclub">V Club</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#local">Localização</a></li>
+          <li><a href="https://taggo.one/barbeariadovini" target="_blank" rel="noopener">Cartão digital</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ajuda</h4>
+        <ul>
+          <li><a href="#faq">Dúvidas frequentes</a></li>
+          <li><a href="https://g.page/r/CT1bedQJuBEJEAI/review" target="_blank" rel="noopener">Avaliar no Google</a></li>
+          <li><a href="https://wa.me/5527999188055" target="_blank" rel="noopener">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© Barbearia do Vini — Serra, ES</span>
+      <span>Ter a Sex 09h–12h · 13h–20h — Sáb 08h–12h · 13h–18h</span>
+    </div>
   </div>
 </footer>
 
-<div class="sticky-cta">
-  <a class="btn btn-ghost" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio" data-gtag-event="agendar_click" data-gtag-label="sticky_whatsapp" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>WhatsApp</a>
-  <a class="btn btn-primary" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" data-gtag-event="agendar_click" data-gtag-label="sticky_appbarber" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="1"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Agendar</a>
-</div>
+<script>
+(function(){
+  "use strict";
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-<script src="assets/js/main.js"></script>
+  /* nav solidify on scroll */
+  var nav = document.getElementById('nav');
+  var hero = document.getElementById('top');
+  var navIo = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ nav.classList.toggle('solid', !e.isIntersecting); });
+  }, { rootMargin: '-70% 0px 0px 0px' });
+  navIo.observe(hero);
+
+  /* mobile nav drawer */
+  var burger = document.getElementById('navBurger');
+  var drawer = document.getElementById('navDrawer');
+  if(burger && drawer){
+    burger.addEventListener('click', function(){
+      var open = drawer.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
+    drawer.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        drawer.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', function(ev){
+      if(ev.key === 'Escape' && drawer.classList.contains('open')){
+        drawer.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.focus();
+      }
+    });
+  }
+
+  /* decorative icons shouldn't be announced by screen readers — the label
+     already comes from visible text or an aria-label on the parent control */
+  document.querySelectorAll(
+    '.icn svg, .benefit svg, .plan-card li svg, .brand svg, .foot-brand svg, .nav-burger svg, .kicker .o'
+  ).forEach(function(el){ el.setAttribute('aria-hidden', 'true'); });
+
+  /* scroll reveal */
+  if(reduce){
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var rvIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); rvIo.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.rv').forEach(function(el){ rvIo.observe(el); });
+  }
+
+  /* carousel prev/next */
+  document.querySelectorAll('[data-scroll]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var track = document.getElementById(btn.dataset.target);
+      if(!track) return;
+      var card = track.querySelector(':scope > *');
+      var step = card ? card.getBoundingClientRect().width + 18 : 280;
+      track.scrollBy({ left: step * (+btn.dataset.scroll), behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+
+})();
+</script>
 
 </body>
 </html>
