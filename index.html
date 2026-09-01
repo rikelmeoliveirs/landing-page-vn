@@ -50,6 +50,7 @@
   --gold:#adb5bd;        /* Slate Grey — was warm gold, now silver */
   --gold-soft:#e9ecef;   /* Alabaster Grey — was warm gold-soft, now bright silver */
   --maxw:1180px;
+  --shadow-card:0 1px 2px rgba(0,0,0,.4),0 12px 28px -10px rgba(0,0,0,.6);
 }
 *{box-sizing:border-box;margin:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -61,18 +62,21 @@ body{
   font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased;
 }
 h1,h2,h3{line-height:1.05;text-wrap:balance;font-weight:800}
-p{max-width:60ch}
+p{max-width:66ch}
 img,canvas{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 :focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px;border-radius:2px}
+::selection{background:var(--gold-soft);color:var(--bg)}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-faint)}
+.testi-card,.gal-card,.info-card,.svc-card,.team-card,.plan-card,.faq-item,.ba-card,.benefit{
+  box-shadow:var(--shadow-card);
+}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.1rem,4vw,2.4rem)}
 .mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
-.eyebrow{
-  font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--gold-soft);font-weight:500;display:flex;align-items:center;gap:.6rem;
-}
-.eyebrow::before{content:"";width:22px;height:1px;background:var(--gold);flex:none}
 
 /* ============ REVEAL ============ */
 .rv{
@@ -81,6 +85,11 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 }
 .rv.in{opacity:1;transform:none;filter:blur(0)}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}}
+/* the V Club panel is the page's one real offer — its entrance gets a touch
+   more presence (settles in from a slight scale) instead of the plain
+   fade+drift every other section uses */
+.vclub-panel.rv{transform:translateY(28px) scale(.97);transition-duration:.9s}
+.vclub-panel.rv.in{transform:none}
 
 /* ============ NAV ============ */
 .nav{position:sticky;top:0;z-index:60;padding:.9rem 0;transition:background .25s,border-color .25s,backdrop-filter .25s}
@@ -89,6 +98,10 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .brand{display:flex;align-items:center;gap:.6rem;margin-right:0}
 .brand .brand-mark{width:26px;height:26px;flex:none;object-fit:contain;transition:transform .35s cubic-bezier(.16,1,.3,1)}
 .brand b{font-family:'Playfair Display',serif;font-weight:800;font-size:1.05rem;letter-spacing:.01em;transition:letter-spacing .35s ease}
+/* below 820px the nav already has the logo mark, the Agendar button and the
+   burger competing for a narrow row — the wordmark is the one safe thing to
+   drop; it was squeezing "Agendar" until it clipped */
+@media (max-width:819px){.brand b{display:none}}
 .brand:hover svg{transform:rotate(-10deg) scale(1.1)}
 .brand:hover b{letter-spacing:.05em}
 @media (prefers-reduced-motion:reduce){.brand .brand-mark,.brand b{transition:none}}
@@ -127,7 +140,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 }
 .nav-drawer.open{display:flex}
 .nav-drawer a{
-  padding:.85rem .1rem;border-top:1px solid var(--line);
+  padding:1rem .1rem;border-top:1px solid var(--line);min-height:44px;display:flex;align-items:center;
   font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);
 }
 .nav-drawer a:hover{color:var(--gold-soft)}
@@ -153,7 +166,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .btn-gold{background:linear-gradient(180deg,#f8f9fa,#adb5bd);color:#212529;border:1px solid #f8f9fa}
 .btn-outline{background:rgba(255,255,255,.03);color:var(--ink);border:1px solid var(--line-strong)}
 .btn-outline:hover{border-color:var(--gold-soft)}
-.btn-sm{padding:.55rem .9rem;font-size:.66rem}
+.btn-sm{padding:.55rem .9rem;font-size:.72rem;flex-shrink:0}
 
 /* ============ HERO ============ */
 .hero{
@@ -202,24 +215,15 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
   }
 }
 .hero-in{position:relative;z-index:2;max-width:640px;width:100%;margin:0 auto 0 0}
-.hero .kicker{
-  display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(233,236,239,.4);border-radius:3px;
-  padding:.42rem .7rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:500;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);
-}
-.hero .kicker .o{width:6px;height:6px;border-radius:999px;border:1px solid var(--gold-soft);flex:none}
 .hero h1{
   font-family:'Playfair Display',Georgia,serif;font-weight:800;text-transform:uppercase;color:#f8f9fa;
-  font-size:clamp(2.1rem,6.4vw,4.2rem);line-height:1.02;letter-spacing:.005em;margin-top:1.1rem;
+  font-size:clamp(2.1rem,6.4vw,4.2rem);line-height:1.02;letter-spacing:.005em;
 }
-.hero h1 em{
-  font-style:italic;font-weight:700;background:linear-gradient(92deg,#f8f9fa 0%,#dee2e6 45%,#adb5bd 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
+.hero h1 em{font-style:italic;font-weight:900}
 .hero .sub{font-size:1rem;line-height:1.6;color:#ced4da;margin-top:1.15rem;max-width:40ch}
 .hero .ctas{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.7rem}
 .hero .proof-title{
-  margin-top:1.6rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;font-weight:500;
+  margin-top:1.6rem;font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;
   letter-spacing:.18em;text-transform:uppercase;color:#9297a0;
 }
 .hero .proof-title + .proof{margin-top:.5rem}
@@ -239,7 +243,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .scrolldown{
   position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:2;
   display:flex;flex-direction:column;align-items:center;gap:.4rem;color:#adb5bd;
-  font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
 }
 .scrolldown svg{width:14px;height:14px;animation:bob 1.8s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
@@ -253,7 +257,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .sec-head .sub{color:var(--ink-soft);font-size:.94rem;max-width:44ch;margin-top:.5rem}
 .sec-nav{display:flex;gap:.5rem}
 .sec-nav button{
-  width:38px;height:38px;border-radius:999px;border:1px solid var(--line-strong);
+  width:44px;height:44px;border-radius:999px;border:1px solid var(--line-strong);
   display:grid;place-items:center;transition:border-color .15s,background .15s;
 }
 .sec-nav button:hover{border-color:var(--gold-soft);background:rgba(233,236,239,.08)}
@@ -272,9 +276,9 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .ph .icn{position:absolute;inset:0;display:grid;place-items:center;color:#495057;opacity:.55}
 .ph .icn svg{width:15%;height:15%;min-width:26px;min-height:26px}
 .ph .tag{
-  position:absolute;left:.6rem;bottom:.6rem;font-family:'IBM Plex Mono',monospace;font-size:.6rem;
+  position:absolute;left:.6rem;bottom:.6rem;font-family:'IBM Plex Mono',monospace;font-size:.72rem;
   letter-spacing:.08em;text-transform:uppercase;color:#ced4da;background:rgba(33,37,41,.6);
-  padding:.25rem .5rem;border-radius:4px;
+  padding:.3rem .55rem;border-radius:4px;
 }
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
@@ -287,7 +291,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .testi-card{background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:1.4rem 1.3rem;display:flex;flex-direction:column;gap:.8rem}
 .testi-card .stars{color:var(--gold-soft);font-size:.9rem;letter-spacing:.15em}
 .testi-card blockquote{font-size:.9rem;color:var(--ink-soft);line-height:1.55}
-.testi-card .cite{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink);font-weight:600}
+.testi-card .cite{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink);font-weight:600}
 .testi-card .cite span{color:var(--ink-faint);font-weight:400;display:block;margin-top:.15em}
 
 .gal-card{width:min(70vw,240px);border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--raised)}
@@ -315,7 +319,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .svc-card .ph{aspect-ratio:4/3;border-radius:0;border:0;border-bottom:1px solid var(--line)}
 .svc-card .body{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.5rem}
 .svc-card h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700}
-.svc-card .meta{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink-soft);display:flex;justify-content:space-between}
+.svc-card .meta{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ink-soft);display:flex;justify-content:space-between}
 .svc-card .price{color:var(--gold-soft);font-weight:600}
 .svc-card .more{margin-top:.3rem;font-size:.78rem;color:var(--ink-soft);display:inline-flex;align-items:center;gap:.35rem}
 
@@ -325,7 +329,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .team-card .ph{aspect-ratio:3/4;border-radius:0;border:0;border-bottom:1px solid var(--line)}
 .team-card .body{padding:1rem 1.1rem 1.2rem}
 .team-card h3{font-family:'Playfair Display',serif;font-size:1.1rem}
-.team-card .role{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--gold-soft);margin-top:.25rem}
+.team-card .role{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:var(--gold-soft);margin-top:.25rem}
 .team-card .desc{font-size:.84rem;color:var(--ink-soft);margin-top:.55rem}
 .team-card .wa{margin-top:.8rem;font-size:.76rem;display:inline-flex;align-items:center;gap:.4rem;color:var(--ink-soft)}
 
@@ -336,7 +340,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
   font-family:'Playfair Display',serif;font-style:italic;font-weight:600;
   font-size:clamp(1.3rem,3.4vw,2rem);line-height:1.32;margin:1.1rem 0 0;color:var(--ink);
 }
-.testimonial .cite{margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.03em;color:var(--ink-faint)}
+.testimonial .cite{margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.03em;color:var(--ink-faint)}
 
 /* V Club — the page's one commercial offer gets a framed panel so it reads as
    featured without needing color to say so */
@@ -358,11 +362,11 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
   background:linear-gradient(165deg,#f8f9fa,#ced4da);color:#212529;border-color:#f8f9fa;
   box-shadow:0 0 0 1px #f8f9fa;
 }
-.plan-card .badge{align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:#f8f9fa;background:#212529;padding:.2rem .5rem;border-radius:4px}
+.plan-card .badge{align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#f8f9fa;background:#212529;padding:.25rem .55rem;border-radius:4px}
 .plan-card h3{font-family:'Playfair Display',serif;font-size:1.25rem}
 .plan-card .price{font-family:'IBM Plex Mono',monospace;color:var(--gold-soft);font-size:1.05rem}
 .plan-card.hi .price{color:#212529}
-.plan-card .price small{color:var(--ink-faint);font-size:.66rem;font-weight:400}
+.plan-card .price small{color:var(--ink-faint);font-size:.72rem;font-weight:400}
 .plan-card.hi .price small{color:#495057}
 .plan-card .save{font-size:.76rem;color:var(--ink-faint)}
 .plan-card .save s{opacity:.75}
@@ -402,7 +406,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .ba-split{display:flex;aspect-ratio:16/10}
 .ba-split .ph{border-radius:0;border:0;flex:1}
 .ba-split .ph:first-child{border-right:1px solid var(--line-strong)}
-.ba-lbls{display:flex;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.ba-lbls{display:flex;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
 .ba-lbls span{flex:1;padding:.55rem .8rem}
 .ba-lbls span:first-child{border-right:1px solid var(--line)}
 .ba-name{padding:0 .8rem .8rem;font-size:.82rem;color:var(--ink-soft)}
@@ -433,7 +437,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .channel-card{display:flex;flex-direction:column;align-items:center;gap:1rem;text-align:center;padding:1rem 0}
 .channel-icon{width:44px;height:44px;color:var(--gold-soft)}
 .channel-card .btn{width:100%;max-width:260px}
-.signup .note{font-size:.7rem;color:var(--ink-faint);font-family:'IBM Plex Mono',monospace}
+.signup .note{font-size:.76rem;color:var(--ink-faint);font-family:'IBM Plex Mono',monospace}
 
 /* footer */
 .foot{border-top:1px solid var(--line);padding:clamp(3rem,7vw,4.6rem) 0 2rem}
@@ -445,10 +449,10 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 .foot-brand b{font-family:'Playfair Display',serif;font-weight:800}
 .foot-desc{color:var(--ink-faint);font-size:.84rem;margin-top:1rem;max-width:30ch}
 .foot-social{display:flex;gap:.6rem;margin-top:1.2rem}
-.foot-social a{width:34px;height:34px;border:1px solid var(--line-strong);border-radius:999px;display:grid;place-items:center;transition:border-color .15s}
+.foot-social a{width:44px;height:44px;border:1px solid var(--line-strong);border-radius:999px;display:grid;place-items:center;transition:border-color .15s}
 .foot-social a:hover{border-color:var(--gold-soft)}
 .foot-social svg{width:15px;height:15px;color:var(--ink-soft)}
-.foot h4{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:1rem}
+.foot h4{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:1rem}
 .foot ul{list-style:none;display:flex;flex-direction:column;gap:.65rem;font-size:.86rem;color:var(--ink-soft)}
 .foot ul a:hover{color:var(--gold-soft)}
 .foot-bottom{margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--ink-faint)}
@@ -492,7 +496,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 <header class="hero" id="top">
   <div class="hero-photo wallbg"></div>
   <div class="hero-in">
-    <span class="kicker"><span class="o"></span>Barbearia em Serra Sede · Espírito Santo</span>
     <h1>A única barbearia com assinatura mensal em <em>Serra Sede</em>.</h1>
     <p class="sub">Corte, barba e cuidado masculino num espaço limpo e organizado. Agende pelo AppBarber ou pelo WhatsApp e chegue direto pra cadeira.</p>
     <div class="ctas">
@@ -525,7 +528,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
       <div class="content-block rv" id="sobre">
         <div class="ph"><img class="cb-img" style="object-position:center 62%" src="assets/img/sobre-ambiente.jpg" alt="Salão da Barbearia do Vini, com cadeiras, espelhos com luz de LED e TVs" loading="lazy"></div>
         <div>
-          <span class="eyebrow">Sobre nós</span>
           <h3>Ambiente pensado pra você sair melhor do que entrou.</h3>
           <p>Estrutura própria da barbearia, cadeiras confortáveis e ambiente cuidado em cada detalhe. Rikelme, Rafael e Vinicius dividem a cadeira — cada corte com atenção de quem entende do ofício.</p>
         </div>
@@ -533,7 +535,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
       <div class="content-block rev rv">
         <div class="ph"><img class="cb-img" style="object-position:center 42%" src="assets/img/sobre-ferramentas.jpg" alt="Navalha, pente, tesouras e escova organizados na estação" loading="lazy"></div>
         <div>
-          <span class="eyebrow">Agendamento sem fila</span>
           <h3>Marque, chegue, sente na cadeira.</h3>
           <p>Marque pelo WhatsApp ou pelo AppBarber e tenha horário garantido, sem perder a tarde esperando. Chegue com 5–10 min de antecedência — atrasos podem reduzir o tempo do seu serviço.</p>
         </div>
@@ -541,7 +542,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
       <div class="content-block rv">
         <div class="ph"><img class="cb-img" style="object-position:center 66%" src="assets/img/sobre-detalhe.jpg" alt="Barbeiro segurando tesoura e pente antes do corte" loading="lazy"></div>
         <div>
-          <span class="eyebrow">Estrutura completa</span>
           <h3>Wi-Fi, estacionamento e espaço pra criança também.</h3>
           <p>Espaço preparado para atender crianças, com Wi-Fi grátis e estacionamento. Pagamento em Pix, débito, crédito ou dinheiro — você escolhe.</p>
         </div>
@@ -554,7 +554,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <span class="eyebrow">O que fazemos</span>
           <h2>Serviços em destaque</h2>
         </div>
         <div class="sec-nav">
@@ -618,7 +617,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
             <text x="60" y="67" text-anchor="middle" font-size="22" font-weight="800" fill="currentColor" font-family="'Playfair Display',serif">V</text>
           </svg>
           <div>
-            <span class="kicker"><span class="o"></span>Assinatura V Club</span>
             <h2>Corte todo mês, sem pensar duas vezes.</h2>
             <p class="sub">Escolha seu plano e garanta 4 atendimentos por mês a um preço fixo — além de 10% de desconto em serviços extras e produtos da casa.</p>
             <span class="vclub-badge">★ A única barbearia com assinatura mensal em Serra Sede</span>
@@ -687,7 +685,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <span class="eyebrow">Quem corta</span>
           <h2>Os barbeiros da VN</h2>
         </div>
       </div>
@@ -753,7 +750,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <span class="eyebrow">Resultado real, cliente real</span>
           <h2>Trabalhos da VN</h2>
         </div>
         <div class="sec-nav">
@@ -791,7 +787,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <span class="eyebrow">Comodidades</span>
           <h2>O que tem na VN</h2>
         </div>
       </div>
@@ -825,7 +820,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <span class="eyebrow">Antes de agendar</span>
           <h2>Dúvidas de quem tá pensando no V Club.</h2>
           <p class="sub">As perguntas mais comuns antes de assinar — direto, sem letra miúda.</p>
         </div>
@@ -860,7 +854,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
     <div class="wrap">
       <div class="signup rv">
         <div>
-          <span class="eyebrow">Fica por dentro</span>
           <h2>Segue nosso canal no WhatsApp</h2>
           <p class="sub">Vaga de última hora, promoção de horário parado, novidade do V Club — direto no seu WhatsApp, sem grupo, sem spam.</p>
         </div>
@@ -991,7 +984,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
   /* decorative icons shouldn't be announced by screen readers — the label
      already comes from visible text or an aria-label on the parent control */
   document.querySelectorAll(
-    '.icn svg, .benefit svg, .plan-card li svg, .nav-burger svg, .kicker .o'
+    '.icn svg, .benefit svg, .plan-card li svg, .nav-burger svg'
   ).forEach(function(el){ el.setAttribute('aria-hidden', 'true'); });
 
   /* scroll reveal — mark section headers and repeating cards so they fade +
