@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /parceiros/
+
+Sitemap: https://barbeariadovini.com.br/sitemap.xml
