@@ -216,6 +216,10 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
      was down to .3 opacity under an .8 flat wash before, which buried it
      almost completely) while the headline at the top still reads clearly */
   .hero-photo{width:100%;opacity:.55}
+  /* 92vh/720px was sized for when the hero also held the kicker badge and
+     the review pill — both are gone now, so the same height left a tall
+     empty gap under the CTAs before the next section started */
+  .hero{min-height:min(70vh,600px)}
   .hero::before{
     background:linear-gradient(180deg,
       rgba(33,37,41,.94) 0%,
@@ -288,7 +292,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 
 .gal-card{width:min(70vw,240px);border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--raised)}
 .gal-img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
-.gal-cap{padding:.7rem .8rem;font-size:.8rem;color:var(--ink-soft)}
 
 .info-grid{display:grid;gap:1.1rem;grid-template-columns:1fr}
 @media (min-width:700px){.info-grid{grid-template-columns:1fr 1fr}}
@@ -747,23 +750,18 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
       <div class="carousel rv" id="ba">
         <div class="gal-card">
           <img class="gal-img" src="assets/img/corte-01.jpg" alt="Corte social com risco lateral" loading="lazy">
-          <p class="gal-cap">Social crop + risco</p>
         </div>
         <div class="gal-card">
           <img class="gal-img" src="assets/img/corte-02.jpg" alt="Finalização de corte com pente" loading="lazy">
-          <p class="gal-cap">Textura na régua</p>
         </div>
         <div class="gal-card">
           <img class="gal-img" src="assets/img/corte-03.jpg" alt="Degradê com barba alinhada" loading="lazy">
-          <p class="gal-cap">Degradê + barba alinhada</p>
         </div>
         <div class="gal-card">
           <img class="gal-img" src="assets/img/corte-04.jpg" alt="Corte infantil com risco" loading="lazy">
-          <p class="gal-cap">Corte infantil</p>
         </div>
         <div class="gal-card">
           <img class="gal-img" src="assets/img/corte-05.jpg" alt="Corte com volume e movimento" loading="lazy">
-          <p class="gal-cap">Volume + movimento</p>
         </div>
       </div>
     </div>
