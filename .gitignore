@@ -7,3 +7,6 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+# graphify knowledge-graph output (local dev tooling, not part of the site)
+graphify-out/
