@@ -2,28 +2,32 @@
 
 Landing page da Barbearia do Vini (Serra Sede, Serra/ES). Site estático, sem build,
 sem dependências — abre direto no navegador ou em qualquer host de arquivos estáticos.
+No ar em [barbeariadovini.com.br](https://barbeariadovini.com.br).
 
 ## Estrutura
 
 ```
 barbearia-do-vini/
-├── index.html              → toda a página (seções: hero, sobre, serviços, V Club, galeria, horário/local, equipe, rodapé)
+├── index.html              → toda a página: HTML, CSS e JS inline num único arquivo
+│                              (seções: hero, sobre, serviços, barbeiros, depoimentos,
+│                              trabalhos, benefícios, faq, canal WhatsApp, horário/local, rodapé)
 ├── assets/
-│   ├── css/
-│   │   └── style.css       → estilos do site (paleta, tipografia, layout)
+│   ├── fonts/
+│   │   └── satoshi-{400,500,700}.woff2   → fonte de texto (@font-face inline no index.html)
 │   └── img/
-│       ├── hero.jpg              → fundo da seção principal
-│       ├── interior.jpg          → foto do interior da barbearia (seção "Sobre")
-│       ├── corte-01..05.jpg      → fotos de trabalhos/cortes (galeria)
-│       ├── logo-dark.png         → logo oficial, fundo escuro (usado no rodapé)
-│       ├── logo-light.png        → logo oficial, fundo claro (reserva para uso em materiais claros)
-│       ├── vclub-badge.jpg       → selo da assinatura V Club (seção "V Club")
-│       └── favicon.svg           → ícone da aba do navegador
+│       ├── hero-wall.jpg                 → fundo da seção principal
+│       ├── sobre-ambiente.jpg, sobre-ferramentas.jpg, sobre-detalhe.jpg  → seção "Sobre"
+│       ├── svc-corte.jpg, svc-barba.jpg, svc-corte-barba.jpg,
+│       │   svc-corte-hidratacao.jpg      → cards de serviços em destaque
+│       ├── team-rikelme.jpg, team-rafael.jpg, team-vinicius.jpg  → seção "Barbeiros"
+│       ├── corte-01..05.jpg              → galeria "Trabalhos da VN"
+│       └── logo-mark.png, logo-dark.png, logo-light.png, logo-lockup.png  → logo em variações
 └── README.md
 ```
 
-Nenhuma build tool, framework ou `node_modules` — é só HTML + CSS. Basta abrir
-`index.html` num navegador para ver o site rodando localmente.
+Nenhuma build tool, framework ou `node_modules`. Basta abrir `index.html` num
+navegador para ver o site rodando localmente — CSS e JS já estão embutidos no
+próprio arquivo, não há folhas de estilo ou scripts externos ao projeto.
 
 ## Rodar localmente
 
@@ -40,53 +44,19 @@ Duas opções:
 
 ## Publicar em produção
 
-### Opção 1 — GitHub Pages (grátis, recomendado)
+O domínio `barbeariadovini.com.br` (arquivo `CNAME`) já está configurado via
+GitHub Pages a partir da branch `main`, pasta `/ (root)`. Um push para `main`
+publica direto.
 
-1. Crie um repositório no GitHub (veja seção **Git & GitHub** abaixo).
-2. Depois do primeiro push, vá em **Settings → Pages** no repositório.
-3. Em **Source**, selecione a branch `main` e a pasta `/ (root)`.
-4. Salve. Em alguns minutos o site fica disponível em:
-   `https://<seu-usuario>.github.io/<nome-do-repositorio>/`
-
-### Opção 2 — Netlify / Vercel (arrastar e soltar)
-
-Ambos aceitam publicar a pasta do projeto direto, sem git:
-- [app.netlify.com/drop](https://app.netlify.com/drop) — arraste a pasta `barbearia-do-vini` inteira.
-- [vercel.com/new](https://vercel.com/new) — importe a pasta ou conecte o repositório GitHub.
-
-Qualquer host de arquivo estático funciona (Cloudflare Pages, Surge, hospedagem
-compartilhada comum via FTP etc.) — o projeto não depende de nenhuma tecnologia de servidor.
-
-## Git & GitHub
-
-O projeto já está inicializado como repositório git local (primeiro commit feito).
-Para subir para o GitHub:
-
-```bash
-# 1. Crie um repositório vazio em https://github.com/new
-#    (NÃO marque "Initialize with README" — o projeto já tem um)
-
-# 2. Conecte o repositório local ao remoto (troque <usuario> e <repo>):
-git remote add origin https://github.com/<usuario>/<repo>.git
-
-# 3. Envie o código:
-git branch -M main
-git push -u origin main
-```
-
-Se preferir usar a GitHub CLI (`gh`) em vez do passo 1 manual:
-```bash
-gh repo create barbearia-do-vini --public --source=. --remote=origin --push
-```
+Qualquer outro host de arquivo estático também funciona (Netlify, Vercel,
+Cloudflare Pages, FTP comum etc.) — o projeto não depende de nenhuma tecnologia
+de servidor.
 
 ## Atualizar conteúdo
 
-- **Preços e serviços:** editar a seção `<div class="price-board">` em `index.html`.
-- **Assinatura V Club:** seção `<section id="vclub">`.
-- **Horário de funcionamento:** seção `<section id="horario">` — mantenha sincronizado
-  com o horário cadastrado no AppBarber.
-- **Fotos da galeria:** substitua os arquivos em `assets/img/corte-0X.jpg` (mesmo nome)
-  ou adicione novos `<figure>` em `<section id="galeria">`.
+- **Serviços em destaque:** cards `.svc-card` dentro de `<div class="carousel" id="svc">`, seção `#servicos`.
+- **Horário de funcionamento e endereço:** último `<section>` antes do rodapé, card `.info-card` (o segundo tem `id="local"`) — mantenha sincronizado com o horário cadastrado no AppBarber.
+- **Fotos da galeria "Trabalhos da VN":** substitua os arquivos em `assets/img/corte-0X.jpg` (mesmo nome) ou adicione novos `.gal-card`.
 - **Links de agendamento:** WhatsApp (`wa.me/5527999188055`) e AppBarber
   (`sites.appbarber.com.br/barbeariadovini-0cm4`) aparecem em vários botões — usar
   busca e substituição no editor ao trocar qualquer um dos dois.
@@ -97,4 +67,4 @@ Dados de endereço, horário, serviços e preços foram confirmados a partir do 
 oficial da barbearia no [AppBarber](https://sites.appbarber.com.br/barbeariadovini-0cm4),
 do [cartão digital Taggo](https://taggo.one/barbeariadovini) e do perfil no Google.
 Fotos de trabalhos e do interior vêm de material público (Google/portfólio da casa);
-logos e selo do V Club foram fornecidos pelo cliente.
+logos foram fornecidas pelo cliente.

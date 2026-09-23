@@ -21,16 +21,16 @@
   gtag("config", "G-TQ42PM9MW8");
 </script>
 
-<title>Barbearia do Vini — Corte, Barba e V Club em Serra, ES</title>
-<meta name="description" content="Barbearia do Vini, em Serra Sede (Serra/ES). Corte, barba e cuidado masculino com agendamento pelo WhatsApp ou AppBarber. Conheça o V Club, nossa assinatura mensal.">
+<title>Barbearia do Vini — Corte e Barba em Serra Sede, ES</title>
+<meta name="description" content="Barbearia do Vini, em Serra Sede (Serra/ES). Corte, barba e cuidado masculino com agendamento pelo WhatsApp ou AppBarber. Nota 5,0 no Google, 242 avaliações.">
 <meta name="theme-color" content="#212529">
 <link rel="canonical" href="https://barbeariadovini.com.br/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%20%20%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%230b0c0e%22/%3E%0A%20%20%3Crect%20x%3D%2212%22%20y%3D%2212%22%20width%3D%2240%22%20height%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22%23aeb2b9%22%20stroke-width%3D%222%22/%3E%0A%20%20%3Ctext%20x%3D%2232%22%20y%3D%2239%22%20font-family%3D%22Georgia%2C%20%27Times%20New%20Roman%27%2C%20serif%22%20font-size%3D%2220%22%20fill%3D%22%23eceef0%22%20text-anchor%3D%22middle%22%20font-weight%3D%22700%22%3EVN%3C/text%3E%0A%3C/svg%3E%0A">
 <link rel="apple-touch-icon" href="assets/img/logo-dark.png">
 
 <meta property="og:type" content="business.business">
-<meta property="og:title" content="Barbearia do Vini — Corte, Barba e V Club em Serra, ES">
-<meta property="og:description" content="Barbearia do Vini, em Serra Sede (Serra/ES). Corte, barba e cuidado masculino com agendamento pelo WhatsApp ou AppBarber. Conheça o V Club, nossa assinatura mensal.">
+<meta property="og:title" content="Barbearia do Vini — Corte e Barba em Serra Sede, ES">
+<meta property="og:description" content="Barbearia do Vini, em Serra Sede (Serra/ES). Corte, barba e cuidado masculino com agendamento pelo WhatsApp ou AppBarber. Nota 5,0 no Google, 242 avaliações.">
 <meta property="og:url" content="https://barbeariadovini.com.br/">
 <meta property="og:image" content="https://barbeariadovini.com.br/assets/img/logo-dark.png">
 <meta property="og:locale" content="pt_BR">
@@ -129,11 +129,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 }
 .rv.in{opacity:1;transform:none;filter:blur(0)}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;filter:none;transition:none}}
-/* the V Club panel is the page's one real offer — its entrance gets a touch
-   more presence (settles in from a slight scale) instead of the plain
-   fade+drift every other section uses */
-.vclub-panel.rv{transform:translateY(28px) scale(.97);transition-duration:.9s}
-.vclub-panel.rv.in{transform:none}
 /* cards get more life than plain headers/text blocks: they settle in from a
    slight scale and tilt instead of just drifting up */
 .rv-pop{transform:translateY(24px) scale(.92) rotate(-1.5deg);transition-duration:.8s}
@@ -381,49 +376,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 }
 .testimonial .cite{margin-top:1.1rem;font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.03em;color:var(--ink-faint)}
 
-/* V Club — the page's one commercial offer gets a framed panel so it reads as
-   featured without needing color to say so */
-.vclub-panel{border:1px solid var(--line-strong);border-radius:20px;padding:clamp(1.8rem,5vw,3rem)}
-.vclub-head{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start;margin-bottom:2.2rem}
-@media (min-width:640px){.vclub-head{flex-direction:row;align-items:center;gap:1.8rem}}
-.seal{width:84px;height:84px;flex:none;color:var(--ink-faint)}
-@media (prefers-reduced-motion:no-preference){.seal{animation:seal-spin 40s linear infinite}}
-@keyframes seal-spin{to{transform:rotate(360deg)}}
-.vclub-head h2{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3.6vw,2.1rem);margin-top:.6rem}
-.vclub-badge{
-  display:inline-block;margin-top:1rem;padding:.5rem .9rem;border:1px solid var(--line-strong);border-radius:6px;
-  font-size:.8rem;color:var(--ink-soft);
-}
-.plan-grid{display:grid;gap:1.1rem;grid-template-columns:1fr}
-@media (min-width:760px){.plan-grid{grid-template-columns:repeat(3,1fr)}}
-.plan-card{background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:1.4rem 1.3rem;display:flex;flex-direction:column;gap:.6rem}
-.plan-card.hi{
-  background:linear-gradient(165deg,#f8f9fa,#ced4da);color:#212529;border-color:#f8f9fa;
-  box-shadow:0 0 0 1px #f8f9fa;
-}
-.plan-card .badge{align-self:flex-start;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#f8f9fa;background:#212529;padding:.25rem .55rem;border-radius:4px}
-.plan-card h3{font-family:'Playfair Display',serif;font-size:1.25rem}
-.plan-card .price{font-family:'IBM Plex Mono',monospace;color:var(--gold-soft);font-size:1.05rem}
-.plan-card.hi .price{color:#212529}
-.plan-card .price small{color:var(--ink-faint);font-size:.72rem;font-weight:400}
-.plan-card.hi .price small{color:#495057}
-.plan-card .save{font-size:.76rem;color:var(--ink-faint)}
-.plan-card .save s{opacity:.75}
-.plan-card.hi .save{color:#495057}
-.plan-card ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;font-size:.82rem;color:var(--ink-soft);margin-top:.2rem}
-.plan-card.hi ul{color:#343a40}
-.plan-card li{display:flex;gap:.5rem}
-.plan-card li svg{width:13px;height:13px;color:var(--gold-soft);flex:none;margin-top:.15em}
-.plan-card.hi li svg{color:#212529}
-.plan-card .btn{justify-content:center;margin-top:.6rem}
-.plan-card.hi .btn-gold{background:#212529;color:#f8f9fa;border-color:#212529}
 .plans-note{margin-top:1.6rem;font-size:.76rem;color:var(--ink-faint);text-align:center}
-/* the two questions someone actually has right before subscribing — kept
-   inside the V Club panel so they don't have to hunt for the full FAQ */
-.vclub-faq{max-width:640px;margin:1.6rem auto 0;display:flex;flex-direction:column;gap:.6rem}
-.vclub-faq .faq-item{background:var(--raised);border-color:var(--line-strong)}
-.vclub-faq summary{font-size:.86rem;padding:.9rem 1.1rem}
-.vclub-faq p{padding:0 1.1rem 1rem;font-size:.84rem}
 
 /* faq */
 .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:.7rem}
@@ -513,7 +466,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
         <b>Barbearia do Vini</b>
       </a>
       <div class="nav-links nav-links-right">
-        <a href="#vclub">V Club</a>
         <a href="#local">Localização</a>
       </div>
     </div>
@@ -528,7 +480,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
   <div class="nav-drawer" id="navDrawer">
     <a href="#servicos">Serviços</a>
     <a href="#barbeiros">Barbeiros</a>
-    <a href="#vclub">V Club</a>
     <a href="#local">Localização</a>
   </div>
 </nav>
@@ -536,7 +487,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
 <header class="hero" id="top">
   <div class="hero-photo wallbg"></div>
   <div class="hero-in">
-    <h1>A única barbearia com assinatura mensal em <em>Serra Sede</em>.</h1>
+    <h1>Um bom corte é o primeiro <em>sim</em> do seu dia.</h1>
     <p class="sub">Corte, barba e cuidado masculino num espaço limpo e organizado. Agende pelo AppBarber ou pelo WhatsApp e chegue direto pra cadeira.</p>
     <div class="ctas">
       <a class="btn btn-gold" href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">
@@ -634,83 +585,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
         </div>
       </div>
       <p class="plans-note rv">Cardápio completo tem mais de 25 serviços e combos, com opções a partir de R$ 5. <a href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener" style="color:var(--gold-soft)">Ver cardápio completo →</a></p>
-    </div>
-  </section>
-
-<!-- ============ V CLUB (em destaque: painel emoldurado, é a principal oferta comercial da página) ============ -->
-  <section class="sec" id="vclub">
-    <div class="wrap">
-      <div class="vclub-panel rv">
-        <div class="vclub-head">
-          <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
-            <defs><path id="sealPath" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
-            <text font-size="7.6" letter-spacing="2.5" fill="currentColor">
-              <textPath href="#sealPath">ASSINATURA · CLUBE DE ASSINATURA · V CLUB · </textPath>
-            </text>
-            <circle cx="60" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1"/>
-            <text x="60" y="67" text-anchor="middle" font-size="22" font-weight="800" fill="currentColor" font-family="'Playfair Display',serif">V</text>
-          </svg>
-          <div>
-            <h2>Corte todo mês, sem pensar duas vezes.</h2>
-            <p class="sub">Escolha seu plano e garanta 4 atendimentos por mês a um preço fixo — além de 10% de desconto em serviços extras e produtos da casa.</p>
-            <span class="vclub-badge">★ A única barbearia com assinatura mensal em Serra Sede</span>
-          </div>
-        </div>
-
-        <div class="plan-grid">
-          <div class="plan-card">
-            <h3>Barba</h3>
-            <p class="price">R$ 69,99<small>/mês</small></p>
-            <p class="save">Avulso sairia <s>R$ 140</s> — economize 50%</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>4 barbas por mês</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>10% off em serviços extras e produtos</li>
-            </ul>
-            <a class="btn btn-outline" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Barba%2C%20R%2469%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              Assinar
-            </a>
-          </div>
-          <div class="plan-card hi">
-            <span class="badge">Mais pedido</span>
-            <h3>Corte + Barba</h3>
-            <p class="price">R$ 149,99<small>/mês</small></p>
-            <p class="save">Avulso sairia <s>R$ 300</s> — economize 50%</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>4 combos completos por mês</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>10% off em serviços extras e produtos</li>
-            </ul>
-            <a class="btn btn-gold" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Corte%20%2B%20Barba%2C%20R%24149%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              Assinar
-            </a>
-          </div>
-          <div class="plan-card">
-            <h3>Corte</h3>
-            <p class="price">R$ 79,99<small>/mês</small></p>
-            <p class="save">Avulso sairia <s>R$ 160</s> — economize 50%</p>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>4 cortes por mês</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>10% off em serviços extras e produtos</li>
-            </ul>
-            <a class="btn btn-outline" href="https://wa.me/5527999188055?text=Ol%C3%A1%2C%20quero%20assinar%20o%20V%20Club%20Corte%2C%20R%2479%2C99%20por%20m%C3%AAs" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              Assinar
-            </a>
-          </div>
-        </div>
-        <p class="plans-note">Assinaturas ativadas pelo AppBarber ou direto com a gente pelo WhatsApp.</p>
-        <div class="vclub-faq">
-          <details class="faq-item">
-            <summary>Posso cancelar quando eu quiser?</summary>
-            <p>Sim. Sem multa e sem fidelidade mínima — avise pelo WhatsApp com alguns dias de antecedência da próxima cobrança.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Como funciona a cobrança?</summary>
-            <p>Mensal, pelo AppBarber, no cartão cadastrado na assinatura. Você recebe confirmação a cada cobrança.</p>
-          </details>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -849,30 +723,30 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <h2>Dúvidas de quem tá pensando no V Club.</h2>
-          <p class="sub">As perguntas mais comuns antes de assinar — direto, sem letra miúda.</p>
+          <h2>Dúvidas de quem tá vindo pela primeira vez.</h2>
+          <p class="sub">As perguntas mais comuns antes de agendar — direto, sem letra miúda.</p>
         </div>
       </div>
       <div class="faq-list rv">
         <details class="faq-item">
-          <summary>Posso cancelar quando eu quiser?</summary>
-          <p>Sim. Sem multa e sem fidelidade mínima — avise pelo WhatsApp com alguns dias de antecedência da próxima cobrança.</p>
+          <summary>Como faço pra agendar?</summary>
+          <p>Pelo AppBarber ou direto pelo WhatsApp — escolhe o serviço, o horário e já sai com a vaga garantida, sem precisar ligar.</p>
         </details>
         <details class="faq-item">
-          <summary>E se eu não usar os 4 atendimentos no mês?</summary>
-          <p>Os atendimentos são para uso dentro do próprio mês — não acumulam pro mês seguinte, então vale marcar com antecedência pra não perder.</p>
+          <summary>Preciso chegar com quanto tempo de antecedência?</summary>
+          <p>5 a 10 minutos antes do horário marcado. Atrasos podem reduzir o tempo do seu atendimento pra não atrasar quem vem depois.</p>
         </details>
         <details class="faq-item">
-          <summary>Como funciona a cobrança?</summary>
-          <p>Mensal, pelo AppBarber, no cartão cadastrado na assinatura. Você recebe confirmação a cada cobrança.</p>
+          <summary>Posso remarcar ou cancelar um horário?</summary>
+          <p>Sim, sem problema — avise pelo WhatsApp com antecedência pra liberarmos o horário pra outra pessoa.</p>
         </details>
         <details class="faq-item">
-          <summary>Preciso agendar toda vez ou já tenho hora fixa?</summary>
-          <p>Agenda toda vez pelo AppBarber ou WhatsApp — assinantes têm prioridade de horário, mas não é hora fixa automática.</p>
+          <summary>Que formas de pagamento vocês aceitam?</summary>
+          <p>Pix, débito, crédito ou dinheiro — você escolhe na hora do pagamento, sem taxa extra.</p>
         </details>
         <details class="faq-item">
-          <summary>Tem taxa de adesão?</summary>
-          <p>Não. Você paga só a mensalidade do plano escolhido, sem taxa extra pra entrar.</p>
+          <summary>Atendem criança?</summary>
+          <p>Sim, o espaço é preparado pra atender crianças também. É só marcar o horário como qualquer outro atendimento.</p>
         </details>
       </div>
     </div>
@@ -884,7 +758,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
       <div class="signup rv">
         <div>
           <h2>Segue nosso canal no WhatsApp</h2>
-          <p class="sub">Vaga de última hora, promoção de horário parado, novidade do V Club — direto no seu WhatsApp, sem grupo, sem spam.</p>
+          <p class="sub">Vaga de última hora, promoção de horário parado, novidade da casa — direto no seu WhatsApp, sem grupo, sem spam.</p>
         </div>
         <div class="channel-card">
           <svg class="channel-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.37-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.91-1.26-4.81-4.18-4.96-4.38-.14-.19-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.19.51.3.07.11.07.62-.17 1.3z"/></svg>
@@ -947,7 +821,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
         <ul>
           <li><a href="https://sites.appbarber.com.br/barbeariadovini-0cm4" target="_blank" rel="noopener">AppBarber</a></li>
           <li><a href="https://wa.me/5527999188055" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="#vclub">V Club</a></li>
         </ul>
       </div>
       <div>
@@ -1013,15 +886,15 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
   /* decorative icons shouldn't be announced by screen readers — the label
      already comes from visible text or an aria-label on the parent control */
   document.querySelectorAll(
-    '.icn svg, .benefit svg, .plan-card li svg, .nav-burger svg'
+    '.icn svg, .benefit svg, .nav-burger svg'
   ).forEach(function(el){ el.setAttribute('aria-hidden', 'true'); });
 
   /* scroll reveal — mark section headers and repeating cards so they fade +
      drift + un-blur into place as they cross the viewport, staggered when
      several sit in the same row/track */
-  var popTargets = '.testi-card, .gal-card, .svc-card, .team-card, .plan-card, ' +
+  var popTargets = '.testi-card, .gal-card, .svc-card, .team-card, ' +
     '.benefit, .faq-item, .info-card, .ba-card, .content-block';
-  var calmTargets = '.sec-head, .vclub-head, .channel-card';
+  var calmTargets = '.sec-head, .channel-card';
   var revealTargets = popTargets + ', ' + calmTargets;
   document.querySelectorAll(revealTargets).forEach(function(el){
     el.classList.add('rv');
