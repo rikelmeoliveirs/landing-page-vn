@@ -14,33 +14,27 @@
   <meta property="og:description" content="Faço site profissional pra barbearias e cuido do anúncio no Instagram e Facebook pra atrair gente nova. Veja pacotes, valores e um exemplo real no ar.">
   <meta name="twitter:card" content="summary">
 
+  <script>
+    (function(){
+      try{
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      }catch(e){}
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;500;600;700&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* paper + ink: the page's own identity */
-      --paper:#FAF9F7;
-      --paper-2:#F1EEE8;
-      --surface:#FFFFFF;
-      --ink:#17181A;
-      --ink-soft:#55585B;
-      --ink-faint:#636668;
-      --line:#E3E0D9;
-      --line-strong:#D2CEC5;
-
-      /* pine: the one accent, used deliberately */
-      --pine:#1F4D3E;
-      --pine-deep:#123128;
-      --pine-light:#E7EFEA;
-
-      /* whatsapp green: functional, only on WhatsApp actions */
+      /* whatsapp green: functional, only on WhatsApp actions — constant across themes */
       --wa:#25D366;
       --wa-deep:#1DA851;
       --wa-ink:#06210f;
 
-      /* the mock preview keeps the REAL site's actual dark/copper brand */
+      /* the mock preview keeps the REAL site's actual dark/copper brand, regardless of page theme */
       --mock-bg:#0B0C0E;
       --mock-chrome:#17181A;
       --mock-ink:#ECEEF0;
@@ -50,6 +44,63 @@
 
       --font-display:'Libre Bodoni', Georgia, 'Times New Roman', serif;
       --font-body:'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+      /* light theme (default) */
+      --paper:#FAF9F7;
+      --paper-2:#F1EEE8;
+      --surface:#FFFFFF;
+      --ink:#17181A;
+      --ink-soft:#55585B;
+      --ink-faint:#636668;
+      --line:#E3E0D9;
+      --line-strong:#D2CEC5;
+      --pine:#1F4D3E;
+      --pine-light:#E7EFEA;
+      --on-pine:#FFFFFF;
+      --cta-bg:#123128;
+      --cta-text:#FFFFFF;
+      --cta-text-soft:rgba(255,255,255,0.72);
+      --cta-text-faint:rgba(255,255,255,0.6);
+      --cta-eyebrow:#E7EFEA;
+    }
+
+    @media(prefers-color-scheme:dark){
+      :root:not([data-theme="light"]){
+        --paper:#121311;
+        --paper-2:#1A1C19;
+        --surface:#1E201D;
+        --ink:#F2F0EA;
+        --ink-soft:#B7BBB5;
+        --ink-faint:#93968F;
+        --line:rgba(242,240,234,0.1);
+        --line-strong:rgba(242,240,234,0.2);
+        --pine:#7FCDAA;
+        --pine-light:rgba(127,205,170,0.14);
+        --on-pine:#0B140F;
+        --cta-bg:#7FCDAA;
+        --cta-text:#0B140F;
+        --cta-text-soft:rgba(11,20,15,0.72);
+        --cta-text-faint:rgba(11,20,15,0.68);
+        --cta-eyebrow:#123128;
+      }
+    }
+    :root[data-theme="dark"]{
+      --paper:#121311;
+      --paper-2:#1A1C19;
+      --surface:#1E201D;
+      --ink:#F2F0EA;
+      --ink-soft:#B7BBB5;
+      --ink-faint:#93968F;
+      --line:rgba(242,240,234,0.1);
+      --line-strong:rgba(242,240,234,0.2);
+      --pine:#7FCDAA;
+      --pine-light:rgba(127,205,170,0.14);
+      --on-pine:#0B140F;
+      --cta-bg:#7FCDAA;
+      --cta-text:#0B140F;
+      --cta-text-soft:rgba(11,20,15,0.72);
+      --cta-text-faint:rgba(11,20,15,0.68);
+      --cta-eyebrow:#123128;
     }
 
     *{box-sizing:border-box;}
@@ -61,6 +112,7 @@
       font-family:var(--font-body);
       -webkit-font-smoothing:antialiased;
       overflow-x:hidden;
+      transition:background-color .2s ease, color .2s ease;
     }
     img{max-width:100%;display:block;}
     h1,h2,h3{
@@ -86,13 +138,31 @@
       padding:15px 26px;font-size:0.86rem;letter-spacing:0.02em;
       font-weight:600;text-decoration:none;white-space:nowrap;
       border:1px solid transparent;border-radius:3px;
-      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease, color .15s ease;
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease, color .15s ease, background-color .15s ease;
       cursor:pointer;
     }
     .btn-primary{background:var(--wa);color:var(--wa-ink);}
     .btn-primary:hover{background:var(--wa-deep);transform:translateY(-1px);box-shadow:0 10px 24px rgba(37,211,102,0.28);}
     .btn-ghost{border-color:var(--line-strong);color:var(--ink);}
     .btn-ghost:hover{border-color:var(--pine);color:var(--pine);}
+
+    /* ---------- THEME TOGGLE ---------- */
+    .theme-toggle{
+      position:fixed;top:16px;right:16px;z-index:50;
+      width:44px;height:44px;border-radius:50%;
+      background:var(--surface);border:1px solid var(--line-strong);
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;transition:border-color .15s ease, transform .15s ease;
+    }
+    .theme-toggle:hover{border-color:var(--pine);transform:translateY(-1px);}
+    .theme-toggle svg{width:19px;height:19px;stroke:var(--ink);}
+    .theme-toggle .icon-sun{display:none;}
+    :root[data-theme="dark"] .theme-toggle .icon-moon{display:none;}
+    :root[data-theme="dark"] .theme-toggle .icon-sun{display:block;}
+    @media(prefers-color-scheme:dark){
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon{display:none;}
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun{display:block;}
+    }
 
     /* ---------- HERO ---------- */
     .hero{padding:96px 0 68px;}
@@ -132,7 +202,7 @@
       background:var(--mock-bg);
       border-radius:6px;
       overflow:hidden;
-      box-shadow:0 24px 56px rgba(23,24,26,0.16);
+      box-shadow:0 24px 56px rgba(0,0,0,0.24);
     }
     .browser-chrome{
       display:flex;align-items:center;gap:8px;
@@ -159,7 +229,7 @@
     .mock-hero h3{
       font-family:var(--font-display);
       font-size:clamp(1.4rem,4vw,1.9rem);line-height:1.15;
-      color:var(--mock-ink);margin-top:10px;max-width:14ch;
+      color:var(--mock-ink);margin-top:10px;max-width:16ch;
     }
     .mock-hero h3 em{font-style:normal;color:var(--mock-ember);}
     .mock-hero p{
@@ -200,10 +270,10 @@
     }
     .pkg-card.featured{
       border-color:var(--pine);
-      box-shadow:0 16px 40px rgba(18,49,40,0.08);
+      box-shadow:0 16px 40px rgba(0,0,0,0.1);
     }
     .pkg-badge{
-      position:absolute;top:0;right:0;background:var(--pine);color:#FFFFFF;
+      position:absolute;top:0;right:0;background:var(--pine);color:var(--on-pine);
       font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;
       padding:7px 12px;border-radius:0 3px 0 3px;
     }
@@ -243,17 +313,18 @@
 
     /* ---------- CTA FINAL ---------- */
     .cta-band{
-      background:var(--pine-deep);
+      background:var(--cta-bg);
       border-top:1px solid var(--line);text-align:center;padding:88px 24px 100px;
+      transition:background-color .2s ease;
     }
-    .cta-band .eyebrow{color:var(--pine-light);}
-    .cta-band h2{font-size:clamp(1.8rem,3.6vw,2.5rem);max-width:16ch;margin:0 auto;color:#FFFFFF;}
-    .cta-band p{color:rgba(255,255,255,0.72);margin:16px auto 0;max-width:44ch;}
+    .cta-band .eyebrow{color:var(--cta-eyebrow);}
+    .cta-band h2{font-size:clamp(1.8rem,3.6vw,2.5rem);max-width:16ch;margin:0 auto;color:var(--cta-text);}
+    .cta-band p{color:var(--cta-text-soft);margin:16px auto 0;max-width:44ch;}
     .cta-band .hero-ctas{justify-content:center;margin-top:32px;}
-    .cta-contact{
-      margin-top:34px;font-size:0.88rem;color:rgba(255,255,255,0.6);
+    .cta-band .cta-contact{
+      margin-top:34px;font-size:0.88rem;color:var(--cta-text-faint);
     }
-    .cta-contact b{color:#FFFFFF;}
+    .cta-contact b{color:var(--cta-text);}
 
     footer{padding:32px 24px 44px;text-align:center;font-size:0.78rem;color:var(--ink-faint);border-top:1px solid var(--line);}
 
@@ -267,6 +338,11 @@
   </style>
 </head>
 <body>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Mudar pra modo escuro">
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+</button>
 
 <div class="hero">
   <div class="wrap">
@@ -292,7 +368,7 @@
     <div class="section-head">
       <p class="eyebrow">Não é papo, é resultado</p>
       <h2>Este é o site da minha própria barbearia. No ar, agora.</h2>
-      <p>Endereço só seu na internet, cardápio de serviços, assinatura mensal, fotos dos trabalhos da casa e agendamento direto pelo WhatsApp — tudo isso é o que você recebe também.</p>
+      <p>Endereço só seu na internet, cardápio de serviços, fotos dos trabalhos da casa, depoimentos reais de clientes e agendamento direto pelo WhatsApp ou AppBarber — tudo isso é o que você recebe também.</p>
     </div>
 
     <div class="browser-frame">
@@ -302,8 +378,8 @@
       </div>
       <div class="mock-hero">
         <p class="mock-eyebrow">Barbearia em Serra · Espírito Santo</p>
-        <h3>Corte de <em>respeito</em>, atendimento à altura.</h3>
-        <p>Corte, barba e cuidado masculino num espaço limpo e organizado. Agende pelo WhatsApp ou pelo AppBarber e chegue direto pra cadeira.</p>
+        <h3>Um bom corte é o primeiro <em>sim</em> do seu dia.</h3>
+        <p>Corte, barba e cuidado masculino num espaço limpo e organizado. Agende pelo AppBarber ou pelo WhatsApp e chegue direto pra cadeira.</p>
         <div class="mock-stats">
           <div><b>5,0 ★</b><span>242 avaliações</span></div>
           <div><b>3</b><span>barbeiros na casa</span></div>
@@ -489,6 +565,31 @@
 <footer>
   Também sou barbeiro na Barbearia do Vini, Serra Sede — Serra/ES.
 </footer>
+
+<script>
+  (function(){
+    var root = document.documentElement;
+    var btn = document.getElementById('themeToggle');
+
+    function currentTheme(){
+      var attr = root.getAttribute('data-theme');
+      if (attr) return attr;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    function updateButton(){
+      var isDark = currentTheme() === 'dark';
+      btn.setAttribute('aria-pressed', String(isDark));
+      btn.setAttribute('aria-label', isDark ? 'Mudar pra modo claro' : 'Mudar pra modo escuro');
+    }
+    btn.addEventListener('click', function(){
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try{ localStorage.setItem('theme', next); }catch(e){}
+      updateButton();
+    });
+    updateButton();
+  })();
+</script>
 
 </body>
 </html>
